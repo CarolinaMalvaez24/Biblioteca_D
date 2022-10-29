@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('consultas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_consulta');
+            $table->foreignId('id_usuario')->constrained('usuarios');
+            $table->foreignId('id_libro')->constrained('libros');
+            $table->date('fechaConsulta')->nullable();
         });
     }
 

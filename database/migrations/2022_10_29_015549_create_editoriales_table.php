@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('editoriales', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_editorial');
+            $table->string('Nombre_editorial',50);
         });
     }
 

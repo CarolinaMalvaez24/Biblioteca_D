@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_usuario');
+            $table->string('nombre',30)->nullable();
+            $table->string('apellidoPaterno',30)->nullable();
+            $table->string('apellidoMaterno',30)->nullable();
+            $table->string('nombreUsuario',20)->nullable();
+            $table->string('correo',100)->nullable();
+            $table->string('contrasena')->nullable();
+            $table->foreignId('id_tipo')->constrained('tipos');
         });
     }
 

@@ -14,8 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('libros', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_libro');
+            $table->string('descripcion',100)->nullable();
+            $table->integer('anio',4)->nullable();
+            $table->foreignId('id_editorial')->constrained('editoriales');
+            $table->foreignId('id_categoria')->constrained('categorias');
         });
     }
 

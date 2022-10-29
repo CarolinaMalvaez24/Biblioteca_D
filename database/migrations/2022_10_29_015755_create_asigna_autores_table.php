@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('asigna_autores', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id_asignaAutor');
+            $table->foreignId('id_libro')->constrained('libros');
+            $table->foreignId('id_autor')->constrained('autores');
         });
     }
 
