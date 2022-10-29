@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('editoriales', function (Blueprint $table) {
-            $table->increments('id_editorial');
+            $table->id();
             $table->string('Nombre_editorial',50);
         });
     }

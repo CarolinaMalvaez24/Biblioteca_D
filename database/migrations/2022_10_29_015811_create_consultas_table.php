@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('consultas', function (Blueprint $table) {
-            $table->increments('id_consulta');
-            $table->foreignId('id_usuario')->constrained('usuarios');
-            $table->foreignId('id_libro')->constrained('libros');
+            $table->id();
+            $table->foreignId('id_usuarios')->constrained('usuarios');
+            $table->foreignId('id_libros')->constrained('libros');
             $table->date('fechaConsulta')->nullable();
         });
     }
