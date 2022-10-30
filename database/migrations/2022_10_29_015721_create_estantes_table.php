@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('estantes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_usuarios')->constrained('usuarios');
+            $table->foreignId('id_libros')->constrained('libros');
         });
     }
 
