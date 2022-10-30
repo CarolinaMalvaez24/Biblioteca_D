@@ -14,7 +14,8 @@ class AutoresController extends Controller
      */
     public function index()
     {
-        //
+        $autores=autores::all();
+        return view("autores.TableAutores",compact("autores"));
     }
 
     /**

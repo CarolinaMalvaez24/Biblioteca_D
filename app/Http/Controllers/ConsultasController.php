@@ -14,7 +14,9 @@ class ConsultasController extends Controller
      */
     public function index()
     {
-        //
+        
+        $consulta=consultas::all();
+        return view("consultas.TableConsultas",compact("consulta"));
     }
 
     /**

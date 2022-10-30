@@ -14,7 +14,9 @@ class EditorialesController extends Controller
      */
     public function index()
     {
-        //
+        
+        $editorial=editoriales::all();
+        return view("editoriales.TableEditoriales",compact("editorial"));
     }
 
     /**

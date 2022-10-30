@@ -14,7 +14,9 @@ class EstantesController extends Controller
      */
     public function index()
     {
-        //
+        
+        $estante=estantes::all();
+        return view("estantes.TableEstantes",compact("estante"));
     }
 
     /**

@@ -14,7 +14,9 @@ class TiposController extends Controller
      */
     public function index()
     {
-        //
+        
+        $tipo=tipos::all();
+        return view("tipos.TableTipos",compact("tipo"));
     }
 
     /**

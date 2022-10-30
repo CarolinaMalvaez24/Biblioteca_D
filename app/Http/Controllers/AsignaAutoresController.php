@@ -14,7 +14,8 @@ class AsignaAutoresController extends Controller
      */
     public function index()
     {
-        //
+        $As_autores=asigna_autores::all();
+        return view("asigna_autores.TableAsignaAutores",compact("As_autores"));
     }
 
     /**

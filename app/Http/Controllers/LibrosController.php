@@ -14,7 +14,9 @@ class LibrosController extends Controller
      */
     public function index()
     {
-        //
+        
+        $libro=libros::all();
+        return view("libros.TableLibros",compact("libro"));
     }
 
     /**
