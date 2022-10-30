@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class editoriales extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'Nombre_editorial'
+    ];
 }

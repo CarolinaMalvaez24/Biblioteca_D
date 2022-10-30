@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class consultas extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'id_usuarios',
+        'id_libros',
+        'fechaConsulta'
+
+    ];
 }

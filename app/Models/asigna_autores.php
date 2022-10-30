@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class asigna_autores extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'id_libros',
+        'id_autores'
+    ];
 }
