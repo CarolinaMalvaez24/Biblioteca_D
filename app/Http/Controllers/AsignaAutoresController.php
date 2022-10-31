@@ -25,7 +25,7 @@ class AsignaAutoresController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('asigna_autores.FormAsignaAutores');
     }
 
     /**
@@ -36,7 +36,10 @@ class AsignaAutoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        asigna_autores::create([
+            'id_libro'=>$request->id_libro,
+            'id_autores'=>$request->id_autores]);
+        return redirect()->route("asigna_autores.TableAsignaAutores");
     }
 
     /**
