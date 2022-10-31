@@ -21,5 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
 Route::resource("autores",\App\Http\Controllers\AutoresController::class);
+Route::resource("asigna_autores",\App\Http\Controllers\AsignaAutoresController::class);
+Route::resource("categorias",\App\Http\Controllers\CategoriasController::class);
+Route::resource("consultas" ,\App\Http\Controllers\ConsultasController::class);
+Route::resource("editoriales", \App\Http\Controllers\EditorialesController::class);
+Route::resource("estantes",\App\Http\Controllers\EstantesController::class);
+Route::resource("libros", \App\Http\Controllers\LibrosController::class);
+Route::resource("tipos", \App\Http\Controllers\TiposController::class);
+Route::resource("usuarios", \App\Http\Controllers\UsuariosController::class);

@@ -50,13 +50,48 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{url('autores')}}" id="" class="nav-link">
+                                <a class="nav-link" href="{{url('autores')}}">
                                     Autores
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url('libros')}}" id="" class="nav-link">
+                                <a  class="nav-link" href="{{url('libros')}}">
                                     Libros
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('asigna_autores')}}">
+                                    Asigna Autores
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('categorias')}}">
+                                    Categorias
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('consultas')}}">
+                                    Consultas
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('editoriales')}}">
+                                    Editoriales
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('estantes')}}">
+                                    Estantes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('tipos')}}">
+                                    Tipos
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('usuarios')}}">
+                                    Usuarios
                                 </a>
                             </li>
                             <li class="nav-item dropdown">

@@ -4,43 +4,20 @@
     active
 @endsection
 @section("content")
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse" data-target="#navbar8" style="">
-        <p class="navbar-brand text-primary mb-0">
-          <i class="fa d-inline fa-lg fa-stop-circle"></i> BRAND </p>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar8">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Inicio</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Mi cuenta</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Editoriales<br></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Categorias<br></a> </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-github fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-gitlab fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-bitbucket fa-fw fa-lg"></i>
-            </a> </li>
-        </ul>
-        <a class="btn btn-default navbar-btn"><i class="fa fa-user fa-fw"></i>Sign in</a>
-      </div>
-    </div>
-  </nav>
-  <div class="py-5">
+  <div class="py-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center">Tabla Usuarios<br></h1>
+          <h1 class="text-center">Tabla Autores<br></h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 text-center"><a class="btn btn-dark text-capitalize border border-left border-right border-top border-bottom border-light rounded-lg active text-decoration-none" href="#" target="_blank"><i class="fa fa-plus-square pr-1"></i>Nuevo registro</a></div>
+        <div class="col-md-12 text-center"><a class="btn btn-dark text-capitalize border border-left border-right
+        border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
+        href="#" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
+            <path d="M2.5 0c-.166 0-.33.016-.487.048l.194.98A1.51 1.51 0 0 1 2.5 1h.458V0H2.5zm2.292 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zm1.833 0h-.916v1h.916V0zm1.834 0h-.917v1h.917V0zm1.833 0h-.917v1h.917V0zM13.5 0h-.458v1h.458c.1 0 .199.01.293.029l.194-.981A2.51 2.51 0 0 0 13.5 0zm2.079 1.11a2.511 2.511 0 0 0-.69-.689l-.556.831c.164.11.305.251.415.415l.83-.556zM1.11.421a2.511 2.511 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415L1.11.422zM16 2.5c0-.166-.016-.33-.048-.487l-.98.194c.018.094.028.192.028.293v.458h1V2.5zM.048 2.013A2.51 2.51 0 0 0 0 2.5v.458h1V2.5c0-.1.01-.199.029-.293l-.981-.194zM0 3.875v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 5.708v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zM0 7.542v.916h1v-.916H0zm15 .916h1v-.916h-1v.916zM0 9.375v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .916v.917h1v-.917H0zm16 .917v-.917h-1v.917h1zm-16 .917v.458c0 .166.016.33.048.487l.98-.194A1.51 1.51 0 0 1 1 13.5v-.458H0zm16 .458v-.458h-1v.458c0 .1-.01.199-.029.293l.981.194c.032-.158.048-.32.048-.487zM.421 14.89c.183.272.417.506.69.689l.556-.831a1.51 1.51 0 0 1-.415-.415l-.83.556zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373c.158.032.32.048.487.048h.458v-1H2.5c-.1 0-.199-.01-.293-.029l-.194.981zM13.5 16c.166 0 .33-.016.487-.048l-.194-.98A1.51 1.51 0 0 1 13.5 15h-.458v1h.458zm-9.625 0h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zm1.834-1v1h.916v-1h-.916zm1.833 1h.917v-1h-.917v1zm1.833 0h.917v-1h-.917v1zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>Nuevo registro</a></div>
       </div>
       <div class="row">
         <div class="col-md-12">
@@ -57,7 +34,7 @@
                 <tr>
                   <th>1</th>
                   <td>Mark</td>
-                  <td><a class="btn btn-light btn-sm text-decoration-none w-25 h-25 pr-2 mr-2" href="#"><i class="fa fa-pencil bg-light w-25 h-25 border-left border-right border-top border-bottom border-light justify-content-start"></i></a><a class="btn btn-light btn-sm text-decoration-none w-25 h-25 pr-2 mr-2" href="#"><i class="fa fa-times bg-light w-25 h-25 border-left border-right border-top border-bottom border-light justify-content-start"></i></a>
+                  <td> <a class="btn-primary accordion-button">hola</a>
                   </td>
                 </tr>
               </tbody>
@@ -67,9 +44,4 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
-</body>
 @endsection
