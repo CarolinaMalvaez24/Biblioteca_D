@@ -1,34 +1,9 @@
 @extends('layouts.app')
 
-@section('content')
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0 p-0" type="button" data-toggle="collapse" data-target="#navbar8" style="">
-        <p class="navbar-brand text-primary mb-0">
-          <i class="fa d-inline fa-lg fa-stop-circle"></i> BRAND </p>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar8">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">Inicio</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Mi cuenta</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Editoriales<br></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Categorias<br></a> </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-github fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-gitlab fa-fw fa-lg"></i>
-            </a> </li>
-          <li class="nav-item mx-1"> <a class="nav-link" href="#">
-              <i class="fa fa-bitbucket fa-fw fa-lg"></i>
-            </a> </li>
-        </ul>
-        <a class="btn btn-default navbar-btn"><i class="fa fa-user fa-fw"></i>Sign in</a>
-      </div>
-    </div>
-  </nav>
+@section("libros")
+    active
+@endsection
+@section("content")
   <div class="py-5">
     <div class="container">
       <div class="row">

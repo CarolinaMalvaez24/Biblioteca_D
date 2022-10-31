@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-
 @extends('layouts.app')
 
-@section('content')
+@section("consultas")
+    active
+@endsection
+@section("content")
   <div class="py-5">
     <div class="container">
       <div class="row">
