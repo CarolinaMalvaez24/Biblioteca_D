@@ -75,9 +75,9 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, autores $autores)
+    public function update(Request $request, Autores $autore)
     {
-        $autores->update(['nombre_autor'=>$request->nombre_autor]);
+        $autore->update(['id'=>$request->id,'nombre_autor'=>$request->nombre_autor]);
         return redirect()->route('autores.index');
     }
 
