@@ -33,7 +33,7 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach($datos as $autores)
+              @foreach($autores as $datos)
                 <tr>
                   <th>{{$loop->index+1}}</th>
                   <td>{{$datos->nombre_autor}}</td>
