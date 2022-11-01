@@ -17,9 +17,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form id="c_form-h" class="">
-            <div class="form-group row"><label class="col-2">Nombre del Autor</label>
-              <div class="col-10"><input type="text" class="form-control" id="inputAutor" placeholder="Nombre del autor del libro"></div>
+          <form id="c_form-h" method="POST" action="{{url ('autores')}}">
+            @csrf
+            <div class="form-group row"><label class="col-2 @error('nombre_autor')is-invalid @enderror" value="{{old('nombre_autor')}}">
+            Nombre del Autor</label>
+                @error('nombre_autor')
+                  <div class="invalid-feedback">{{$message}}</div>
+                 @enderror
+              <div class="col-10"><input type="text" class="form-control" id="nombre_autor"  name="nombre_autor" placeholder="Nombre del autor del libro"></div>
             </div><button type="submit" class="btn btn-primary">Agregar</button>
           </form>
         </div>

@@ -36,7 +36,14 @@ class AutoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nombre_autor"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Autores::create(['nombre_autor'=>$request->nombre_autor,]);
+        //dd($request);
+        return redirect()->route('autores.index');
     }
 
     /**
@@ -58,7 +65,7 @@ class AutoresController extends Controller
      */
     public function edit(autores $autores)
     {
-        //
+        return view("autores.updateAutores",compact("autore"));
     }
 
     /**
