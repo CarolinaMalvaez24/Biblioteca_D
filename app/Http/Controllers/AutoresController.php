@@ -89,11 +89,7 @@ class AutoresController extends Controller
      */
     public function destroy(autores $autore)
     {
-<<<<<<< HEAD
         $autore->delete();
-=======
-        $autores->delete();
->>>>>>> 2547a2e1cf0e068c924407812907aa5d0d077223
         return redirect()->route('autores.index');
     }
 }
