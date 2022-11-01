@@ -33,7 +33,7 @@
               @foreach($editorial as $datos)
                 <tr>
                   <th>{{$loop->index+1}}</th>
-                  <td>{{$datos->Nombre_editorial}}</td>
+                  <td>{{$datos->nombre_editorial}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"

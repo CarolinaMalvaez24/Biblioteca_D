@@ -9,6 +9,6 @@ class editoriales extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'Nombre_editorial'
+        'nombre_editorial'
     ];
 }
