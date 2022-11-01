@@ -17,7 +17,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+<<<<<<< HEAD
           <form id="c_form-h" method="POST" action="{{route('autores.update',$autores->id)}}">
+=======
+          <form method="POST" action="{{route("autores.update",$autores->id)}}">
+>>>>>>> 46143649e2c922772998525582b9f6ea27f70616
             @csrf
             @method('PUT')
             <div class="form-group row"><label class="col-2">Nombre del Autor</label>

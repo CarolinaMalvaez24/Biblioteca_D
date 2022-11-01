@@ -77,12 +77,7 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, autores $autore)
-    {
-        dd($autores);
-        $autores->update(['nombre_autor'=>$request->nombre_autor]);
-        return redirect()->route('autores.index');
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -90,9 +85,9 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(autores $autores)
+    public function destroy(autores $autore)
     {
-        $autores->delete();
+        $autore->delete();
         return redirect()->route('autores.index');
     }
 }
