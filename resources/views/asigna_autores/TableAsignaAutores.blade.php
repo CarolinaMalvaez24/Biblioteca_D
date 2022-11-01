@@ -32,11 +32,11 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach($As_autores as $asignaAutores)
+              @foreach($As_autores as $datos)
                 <tr>
                   <th>{{$loop->index+1}}</th>
-                  <td>{{$asignaAutores->id_libro}}</td>
-                  <td>{{$asignaAutores->id_autores}}</td>
+                  <td>{{$datos->id_libro}}</td>
+                  <td>{{$datos->id_autores}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"

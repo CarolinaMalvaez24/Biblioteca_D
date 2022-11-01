@@ -30,11 +30,12 @@
                   <th>Opciones</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody>}
+              @foreach($estante as $datos)
                 <tr>
-                  <th>1</th>
-                  <td>Mark</td>
-                  <td>Mark</td>
+                  <th>{{$loop->index+1}}</th>
+                  <td>{{$datos->id_usuarios}}</td>
+                  <td>{{$datos->id_libros}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
@@ -53,6 +54,7 @@
                       </a>
                   </td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>

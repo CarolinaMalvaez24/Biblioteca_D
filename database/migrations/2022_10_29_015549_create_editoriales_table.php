@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('editoriales', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre_editorial',50);
+            $table->string('nombre_editorial',50);
         });
     }
 

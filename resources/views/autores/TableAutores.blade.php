@@ -33,9 +33,10 @@
                 </tr>
               </thead>
               <tbody>
+              @foreach($autores as $datos)
                 <tr>
-                  <th></th>
-                  <td></td>
+                  <th>{{$loop->index+1}}</th>
+                  <td>{{$datos->nombre_autor}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
@@ -54,6 +55,7 @@
                       </a>
                   </td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>

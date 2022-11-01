@@ -65,7 +65,7 @@
 
     @if (Route::has('login') && Auth::check())
         <div class="top-right links">
-            <a href="{{ url('/home') }}">Dashboard</a>
+            <a href="{{ url('/home') }}">Tablero</a>
         </div>
     @elseif (Route::has('login') && !Auth::check())
         <div class="top-right links">

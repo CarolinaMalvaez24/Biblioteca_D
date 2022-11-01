@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <img src="{{url("img/logo_transparent.png")}}" height="400" width="400">
+                        <img src="{{url("img/logo_transparent.png")}}" height="300" width="400">
                 </div>
             </div>
         </div>
