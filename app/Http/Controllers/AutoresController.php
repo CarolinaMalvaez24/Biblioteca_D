@@ -63,9 +63,11 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
+
     public function edit(Autores $autore)
     {
         return view("autores.updateAutores",compact("autore"));
+
     }
 
     /**
@@ -75,11 +77,14 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
+
+
     public function update(Request $request, Autores $autore)
     {
-        $autore->update(['inputAutor'=>$request->nombre_autor]);
-        $autore->fill($request->all());
-        $autore->save();
+        $request->validate([
+            "nombre_autor"=>"required|min:3|max:100|unique:autores",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+        $autore->update(['nombre_autor'=>$request->nombre_autor]);
         return redirect()->route('autores.index');
     }
 
