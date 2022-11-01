@@ -36,16 +36,16 @@
                 </tr>
               </thead>
               <tbody>
-              
+              @foreach($usuario as $datos)
                 <tr>
-                  <th></th>
-                  <td>Mark</td>
-                  <td>Mark</td>
-                  <td>Mark</td>
-                  <td>Mark</td>
-                  <td>Mark</td>
-                  <td>Mark</td>
-                  <td>Mark</td>
+                  <th>{{$loop->index+1}}</th>
+                  <td>{{$datos->nombre}}</td>
+                  <td>{{$datos->apellidoPaterno}}</td>
+                  <td>{{$datos->apellidoMaterno}}</td>
+                  <td>{{$datos->nombreUsuario}}</td>
+                  <td>{{$datos->correo}}</td>
+                  <td>{{$datos->contrasena}}</td>
+                  <td>{{$datos->id_tipos}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
@@ -64,6 +64,7 @@
                       </a>
                   </td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>
