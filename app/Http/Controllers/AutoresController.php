@@ -81,11 +81,12 @@ class AutoresController extends Controller
 
     public function update(Request $request, Autores $autore)
     {
-<<<<<<< HEAD
-=======
-        $autore->update(['inputAutor'=>$request->nombre_autor]);
+        $request->validate([
+            "nombre_autor"=>"required|min:3|max:100|unique:autores",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+        $autore->update(['nombre_autor'=>$request->nombre_autor]);
         return redirect()->route('autores.index');
->>>>>>> d8700e633fb09446abc11fff3a7e5d6452cda980
     }
 
     /**

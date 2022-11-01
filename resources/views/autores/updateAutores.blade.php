@@ -21,8 +21,11 @@
             @csrf
             @method('PUT')
             <div class="form-group row"><label class="col-2">Nombre del Autor</label>
-              <div class="col-10"><input type="text" class="form-control" id="inputAutor" placeholder="Nombre del autor del libro"></div>
-            </div><button type="submit" class="btn btn-primary">Agregar</button>
+                @error('nombre_autor')
+                  <div class="invalid-feedback">{{$message}}</div>
+                @enderror
+              <div class="col-10"><input type="text" class="form-control @error('nombre_autor')is-invalid @enderror" id="nombre_autor" name="nombre_autor" value="{{$autore->nombre_autor}}"></div>
+            </div><button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
         </div>
       </div>
