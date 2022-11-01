@@ -65,7 +65,7 @@ class AutoresController extends Controller
      */
     public function edit(autores $autores)
     {
-        return view("autores.updateAutores",compact("autore"));
+        return view("autores.updateAutores",compact("autores"));
     }
 
     /**
