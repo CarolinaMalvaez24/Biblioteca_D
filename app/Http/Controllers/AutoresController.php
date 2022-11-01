@@ -87,9 +87,9 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(autores $autores)
+    public function destroy(autores $autore)
     {
-        $autores->delete();
+        $autore->delete();
         return redirect()->route('autores.index');
     }
 }
