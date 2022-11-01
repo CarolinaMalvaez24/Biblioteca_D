@@ -63,9 +63,9 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function edit(autores $autores)
+    public function edit(Autores $autore)
     {
-        return view("autores.updateAutores",compact("autores"));
+        return view("autores.updateAutores",compact("autore"));
     }
 
     /**
@@ -75,8 +75,13 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, autores $autores)
+    public function update(Request $request, Autores $autore)
     {
+<<<<<<< HEAD
+=======
+        $autore->update(['inputAutor'=>$request->nombre_autor]);
+        return redirect()->route('autores.index');
+>>>>>>> d8700e633fb09446abc11fff3a7e5d6452cda980
     }
 
     /**
