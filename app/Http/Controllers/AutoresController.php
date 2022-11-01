@@ -63,11 +63,11 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function edit(autores $autores)
 
+    public function edit(Autores $autore)
     {
-        return view("autores.updateAutores",compact("autores"));
-        //dd($autores);
+        return view("autores.updateAutores",compact("autore"));
+
     }
 
     /**
@@ -78,6 +78,12 @@ class AutoresController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+
+    public function update(Request $request, Autores $autore)
+    {
+        $autore->update(['inputAutor'=>$request->nombre_autor]);
+        return redirect()->route('autores.index');
+    }
 
     /**
      * Remove the specified resource from storage.
