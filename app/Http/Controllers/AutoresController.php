@@ -77,13 +77,6 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function update(Request $request, Autores $autores)
-    {
-        $autores->update(['inputAutor'=>$request->nombre_autor]);
-=======
-
-
     public function update(Request $request, Autores $autore)
     {
         $request->validate([
@@ -91,7 +84,6 @@ class AutoresController extends Controller
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
         $autore->update(['nombre_autor'=>$request->nombre_autor]);
->>>>>>> 94da416b37181e97335088a8182cde81ad153874
         return redirect()->route('autores.index');
     }
 
