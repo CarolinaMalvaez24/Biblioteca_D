@@ -30,9 +30,10 @@
                 </tr>
               </thead>
               <tbody>
+              @foreach($tipo as $datos)
                 <tr>
-                  <th>1</th>
-                  <td>Mark</td>
+                  <th>{{$loop->index+1}}</th>
+                  <td>{{$datos->tipo}}</td>
                   <td>
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
@@ -51,6 +52,7 @@
                       </a>
                   </td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>
