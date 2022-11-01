@@ -78,6 +78,8 @@ class AutoresController extends Controller
     public function update(Request $request, Autores $autore)
     {
         $autore->update(['inputAutor'=>$request->nombre_autor]);
+        $autore->fill($request->all());
+        $autore->save();
         return redirect()->route('autores.index');
     }
 
