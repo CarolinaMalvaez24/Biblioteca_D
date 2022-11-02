@@ -17,7 +17,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form id="c_form-h" class="">
+          <form id="c_form-h" method="POST" action="{{url('asigna_autores')}}">
+              @csrf
             <div class="form-group row"><label class="col-2">Libro</label>
               <div class="col-3"><select class="form-select" aria-label="Default select example">
                   <option selected="" value="Open this select menu">Open this select menu</option>
