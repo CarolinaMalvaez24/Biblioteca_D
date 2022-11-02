@@ -26,7 +26,7 @@ class TiposController extends Controller
      */
     public function create()
     {
-        //
+        return view ("tipos.FormTipos");
     }
 
     /**
@@ -37,7 +37,9 @@ class TiposController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tipos::create(['tipo'=>$request->tipo,]);
+        //dd($request);
+        return redirect()->route('tipos.index');
     }
 
     /**
@@ -57,9 +59,9 @@ class TiposController extends Controller
      * @param  \App\Models\tipos  $tipos
      * @return \Illuminate\Http\Response
      */
-    public function edit(tipos $tipos)
+    public function edit(tipos $tipo)
     {
-        //
+        return view("tipos.updateTipos",compact("tipo"));
     }
 
     /**
@@ -69,9 +71,10 @@ class TiposController extends Controller
      * @param  \App\Models\tipos  $tipos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tipos $tipos)
+    public function update(Request $request, tipos $tipo)
     {
-        //
+        $tipo->update(['tipo'=>$request->tipo]);
+        return redirect()->route('tipos.index');
     }
 
     /**
@@ -80,8 +83,9 @@ class TiposController extends Controller
      * @param  \App\Models\tipos  $tipos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tipos $tipos)
+    public function destroy(tipos $tipo)
     {
-        //
+        $tipo->delete();
+        return redirect()->route('tipos.index');
     }
 }
