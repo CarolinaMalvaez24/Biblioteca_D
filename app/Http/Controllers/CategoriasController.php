@@ -26,7 +26,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //
+        return view("categorias.FormCategorias");
     }
 
     /**
@@ -37,7 +37,14 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "tipo_categoria"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Categorias::create(['tipo_categoria'=>$request->tipo_categoria,]);
+        //dd($request);
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -57,9 +64,9 @@ class CategoriasController extends Controller
      * @param  \App\Models\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function edit(categorias $categorias)
+    public function edit(categorias $categoria)
     {
-        //
+        return view("categorias.updateCategorias",compact("categoria"));
     }
 
     /**
@@ -69,9 +76,13 @@ class CategoriasController extends Controller
      * @param  \App\Models\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, categorias $categorias)
+    public function update(Request $request, categorias $categoria)
     {
-        //
+        $request->validate([
+            "tipo_categoria"=>"required|min:3|max:100|unique:categorias",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+        $categoria->update(['tipo_categoria'=>$request->tipo_categoria]);
+        return redirect()->route('categorias.index');
     }
 
     /**
@@ -80,8 +91,9 @@ class CategoriasController extends Controller
      * @param  \App\Models\categorias  $categorias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(categorias $categorias)
+    public function destroy(categorias $categoria)
     {
-        //
+        $categoria->delete();
+        return redirect()->route('categorias.index');
     }
 }
