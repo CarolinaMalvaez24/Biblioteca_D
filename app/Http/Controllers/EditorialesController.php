@@ -26,7 +26,7 @@ class EditorialesController extends Controller
      */
     public function create()
     {
-        //
+        return view("editoriales.FormEditoriales");
     }
 
     /**
@@ -37,7 +37,14 @@ class EditorialesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nombre_editorial"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Editoriales::create(['nombre_editorial'=>$request->nombre_editorial,]);
+        //dd($request);
+        return redirect()->route('editoriales.index');
     }
 
     /**
@@ -57,9 +64,9 @@ class EditorialesController extends Controller
      * @param  \App\Models\editoriales  $editoriales
      * @return \Illuminate\Http\Response
      */
-    public function edit(editoriales $editoriales)
+    public function edit(editoriales $editoriale)
     {
-        //
+        return view("editoriales.updateEditoriales",compact("editoriale"));
     }
 
     /**
@@ -69,9 +76,13 @@ class EditorialesController extends Controller
      * @param  \App\Models\editoriales  $editoriales
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, editoriales $editoriales)
+    public function update(Request $request, editoriales $editoriale)
     {
-        //
+        $request->validate([
+            "nombre_editorial"=>"required|min:3|max:100|unique:editoriales",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+        $editoriale->update(['nombre_editorial'=>$request->nombre_editorial]);
+        return redirect()->route('editoriales.index');
     }
 
     /**
@@ -80,8 +91,9 @@ class EditorialesController extends Controller
      * @param  \App\Models\editoriales  $editoriales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(editoriales $editoriales)
+    public function destroy(editoriales $editoriale)
     {
-        //
+        $editoriale->delete();
+        return redirect()->route('editoriales.index');
     }
 }

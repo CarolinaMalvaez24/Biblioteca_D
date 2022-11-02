@@ -11,7 +11,7 @@
           <h1 class="text-center">Tabla Libros<br></h1>
         </div>
       </div>
-        <div class="col-md-12 text-center"><a href="{{route('')}}" class="btn btn-dark text-capitalize border border-left border-right
+        <div class="col-md-12 text-center"><a href="libros/create" class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                               href="#" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">

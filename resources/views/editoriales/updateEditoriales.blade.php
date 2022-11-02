@@ -17,10 +17,17 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form id="c_form-h" class="">
+          <form  method="POST" action="{{route('editoriales.update',$editoriale->id)}}">
+            @csrf
+            @method('PUT')
             <div class="form-group row"><label class="col-2">Editorial</label>
-              <div class="col-10"><input type="text" class="form-control" placeholder="Nombre de la Editorial" id="inputEditorial"></div>
-            </div><button type="submit" class="btn btn-primary">Agregar</button>
+              <div class="col-10"><input type="text" class="form-control @error('nombre_editorial')is-invalid @enderror" placeholder="Nombre de la Editorial" id="nombre_editorial" name="nombre_editorial"
+                value="{{$editoriale->nombre_editorial}}">
+                @error('nombre_editorial')
+                  <div class="invalid-feedback">{{$message}}</div>
+                @enderror
+              </div>
+            </div><button type="submit" class="btn btn-primary">Actualizar</button>
           </form>
         </div>
       </div>
