@@ -15,35 +15,31 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-
         $usuario=usuarios::all();
-=======
         /*
-            SELECT 
-            usuarios.id, 
-            usuarios.nombre, 
-            usuarios.apellidoPaterno, 
-            usuarios.apellidoMaterno, 
-            usuarios.nombreUsuario, 
-            usuarios.correo, 
-            usuarios.contrasena, 
-            tipos.tipo 
-            FROM usuarios 
-            INNER JOIN tipos ON tipos.id=usuarios.id_tipos 
-            ORDER BY usuarios.id ASC; 
+            SELECT
+            usuarios.id,
+            usuarios.nombre,
+            usuarios.apellidoPaterno,
+            usuarios.apellidoMaterno,
+            usuarios.nombreUsuario,
+            usuarios.correo,
+            usuarios.contrasena,
+            tipos.tipo
+            FROM usuarios
+            INNER JOIN tipos ON tipos.id=usuarios.id_tipos
+            ORDER BY usuarios.id ASC;
 
             $usuario=usuarios::join("tipos","tipos.id","=","usuarios.id_tipos")
         ->select("usuarios.id","usuarios.nombre","usuarios.apellidoPaterno","usuarios.apellidoMaterno","usuarios.nombreUsuario","usuarios.correo","usuarios.contrasena","tipos.tipo")
         ->orderby("usuarios.id")
         ->get();
-        
+
         */
         $usuario=usuarios::join("tipos","tipos.id","=","usuarios.id_tipos")
         ->select("usuarios.id","usuarios.nombre","usuarios.apellidoPaterno","usuarios.apellidoMaterno","usuarios.nombreUsuario","usuarios.correo","usuarios.contrasena","tipos.tipo")
         ->orderby("usuarios.id")
         ->get();
->>>>>>> b1728482cf1486757fe8c6ac999c77370d5cd84a
         return view("usuarios.TableUsuarios",compact("usuario"));
     }
 
@@ -54,12 +50,8 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-        return view("usuarios.FormUsuarios");
-=======
         $tipos = tipos::all();
         return view("usuarios.FormUsuarios",compact("tipos"));
->>>>>>> b1728482cf1486757fe8c6ac999c77370d5cd84a
     }
 
     /**
@@ -74,7 +66,7 @@ class UsuariosController extends Controller
         $request->validate([
             "nombre"=>"required",
             "apellidoPaterno"=>"required",
-            "apellidoMaterno"=>"required", 
+            "apellidoMaterno"=>"required",
             "nombreUsuario"=>"required|min:3|max:20",
             "correo"=>"required",
             "contrasena"=>"required",
@@ -127,7 +119,7 @@ class UsuariosController extends Controller
         $request->validate([
             "nombre"=>"required",
             "apellidoPaterno"=>"required",
-            "apellidoMaterno"=>"required", 
+            "apellidoMaterno"=>"required",
             "nombreUsuario"=>"required|min:3|max:20",
             "correo"=>"required",
             "contrasena"=>"required",
