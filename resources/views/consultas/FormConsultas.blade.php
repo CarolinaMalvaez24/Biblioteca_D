@@ -17,34 +17,44 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12" style="">
-          <form id="c_form-h" class="">
+          <form id="c_form-h" method="POST" action="{{url('consultas')}}">
+            @csrf
             <div class="form-group row"><label class="col-2">Usuario</label>
-              <div class="col-3"><select class="form-select" aria-label="Default select example">
-                  <option selected="" value="Open this select menu">Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+              <div class="col-3"><select class="form-select @error('id_usuarios')is-invalid @enderror" aria-label="Default select example" id="id_usuarios" name="id_usuarios">
+                  <option selected="" value="Open this select menu">Elegir nombre de usuario</option>
+                  @foreach($usuarios as $usuario)
+                    <option value="{{$usuario->id}}">{{$usuario->nombreUsuario}}</option>
+                  @endforeach
                 </select>
+                @error('id_usuarios')
+                  <div class="invalid-feedback">{{$message}}</div>
+                 @enderror
               </div>
             </div>
             <div class="form-group row"><label class="col-2">Libro</label>
-              <div class="col-3"><select class="form-select" aria-label="Default select example">
-                  <option selected="" value="Open this select menu">Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+              <div class="col-3"><select class="form-select @error('id_libros')is-invalid @enderror" aria-label="Default select example" id="id_libros" name="id_libros">
+                  <option selected="" value="Open this select menu">Selecciona libro</option>
+                  @foreach($libros as $libro)
+                    <option value="{{$libro->id}}">{{$libro->descripcion}}</option>
+                  @endforeach
                 </select>
+                @error('id_libros')
+                  <div class="invalid-feedback">{{$message}}</div>
+                 @enderror
               </div>
             </div>
             <div class="form-group row"><label for="date" class="col-2">Fecha</label>
               <div class="col-3">
                 <div class="input-group date" id="datepicker">
-                  <input type="text" class="form-control" id="date">
+                  <input type="date" class="form-control @error('fechaConsulta')is-invalid @enderror" id="fechaConsulta" name="fechaConsulta">
                   <span class="input-group-append">
                     <span class="input-group-text bg-light d-block">
                       <i class="fa fa-calendar"></i>
                     </span>
                   </span>
+                  @error('fechaConsulta')
+                  <div class="invalid-feedback">{{$message}}</div>
+                 @enderror
                 </div>
               </div>
             </div>

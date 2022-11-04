@@ -14,7 +14,7 @@ class TiposController extends Controller
      */
     public function index()
     {
-        
+
         $tipo=tipos::all();
         return view("tipos.TableTipos",compact("tipo"));
     }
@@ -37,6 +37,10 @@ class TiposController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "tipo"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
         Tipos::create(['tipo'=>$request->tipo,]);
         //dd($request);
         return redirect()->route('tipos.index');
@@ -73,6 +77,10 @@ class TiposController extends Controller
      */
     public function update(Request $request, tipos $tipo)
     {
+        $request->validate([
+            "tipo"=>"required|min:3|max:100|unique:tipos",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+        
         $tipo->update(['tipo'=>$request->tipo]);
         return redirect()->route('tipos.index');
     }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class libros extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable=[
         'descripcion',
         'anio',

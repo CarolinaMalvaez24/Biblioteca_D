@@ -20,7 +20,7 @@
           <form id="c_form-h" method="post" action="{{url('editoriales')}}">
             @csrf
             <div class="form-group row"><label class="col-2">Editorial</label>
-              <div class="col-10"><input type="text" class="form-control @error('nombre_editorial')is-invalid @enderror" placeholder="Nombre de la Editorial" id="nombre_editorial" name="nombre_editorial">
+              <div class="col-10"><input type="text" class="form-control @error('nombre_editorial')is-invalid @enderror" placeholder="Nombre de la Editorial" id="nombre_editorial" name="nombre_editorial" value="{{old('nombre_editorial')}}">
                 @error('nombre_editorial')
                   <div class="invalid-feedback">{{$message}}</div>
                  @enderror

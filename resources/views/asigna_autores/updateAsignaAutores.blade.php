@@ -17,28 +17,28 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form id="c_form-h" method="POST" action="{{route('asigna_autores.update',$autore->id)}}">
+          <form id="c_form-h" method="POST" action="{{route('asigna_autores.update',$asigna_autore->id)}}">
               @csrf
               @method('PUT')
             <div class="form-group row"><label class="col-2">Libro</label>
-              <div class="col-3"><select class="form-select" aria-label="Default select example">
-                  <option selected="" value="Open this select menu">Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+              <div class="col-3"><select class="form-select" aria-label="Default select example" name="id_libro" id="id_libro">
+                  <option selected="" value="Open this select menu">Seleccionar Libro</option>
+                  @foreach($libro as $libro)
+                     <option value="{{$libro->id}}">{{$libro->descripcion}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
             <div class="form-group row"><label class="col-2">Autor</label>
-              <div class="col-3"><select class="form-select" aria-label="Default select example">
-                  <option selected="" value="Open this select menu">Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+              <div class="col-3"><select class="form-select" aria-label="Default select example" id="id_autores" name="id_autores">
+                  <option selected="" value="Open this select menu">Seleccionar autor</option>
+                  @foreach($autores as $autor)
+                     <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Agregar<br></button>
+            <button type="submit" class="btn btn-primary">Actualizar<br></button>
           </form>
         </div>
       </div>

@@ -43,7 +43,7 @@
                           </svg>
                       </a>
 
-                      <form action="{{route("editoriales.destroy",$datos->id)}}" method="post">
+                      <form action="{{route('editoriales.destroy',$datos->id)}}" method="post">
                           @csrf
                           @method('delete') 
                           <button class="btn btn-dark text-capitalize border border-left border-right

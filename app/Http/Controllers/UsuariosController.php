@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\usuarios;
 use Illuminate\Http\Request;
+use App\Models\tipos;
 
 class UsuariosController extends Controller
 {
@@ -14,8 +15,35 @@ class UsuariosController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 
         $usuario=usuarios::all();
+=======
+        /*
+            SELECT 
+            usuarios.id, 
+            usuarios.nombre, 
+            usuarios.apellidoPaterno, 
+            usuarios.apellidoMaterno, 
+            usuarios.nombreUsuario, 
+            usuarios.correo, 
+            usuarios.contrasena, 
+            tipos.tipo 
+            FROM usuarios 
+            INNER JOIN tipos ON tipos.id=usuarios.id_tipos 
+            ORDER BY usuarios.id ASC; 
+
+            $usuario=usuarios::join("tipos","tipos.id","=","usuarios.id_tipos")
+        ->select("usuarios.id","usuarios.nombre","usuarios.apellidoPaterno","usuarios.apellidoMaterno","usuarios.nombreUsuario","usuarios.correo","usuarios.contrasena","tipos.tipo")
+        ->orderby("usuarios.id")
+        ->get();
+        
+        */
+        $usuario=usuarios::join("tipos","tipos.id","=","usuarios.id_tipos")
+        ->select("usuarios.id","usuarios.nombre","usuarios.apellidoPaterno","usuarios.apellidoMaterno","usuarios.nombreUsuario","usuarios.correo","usuarios.contrasena","tipos.tipo")
+        ->orderby("usuarios.id")
+        ->get();
+>>>>>>> b1728482cf1486757fe8c6ac999c77370d5cd84a
         return view("usuarios.TableUsuarios",compact("usuario"));
     }
 
@@ -26,7 +54,12 @@ class UsuariosController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view("usuarios.FormUsuarios");
+=======
+        $tipos = tipos::all();
+        return view("usuarios.FormUsuarios",compact("tipos"));
+>>>>>>> b1728482cf1486757fe8c6ac999c77370d5cd84a
     }
 
     /**
@@ -37,7 +70,26 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            "nombre"=>"required",
+            "apellidoPaterno"=>"required",
+            "apellidoMaterno"=>"required", 
+            "nombreUsuario"=>"required|min:3|max:20",
+            "correo"=>"required",
+            "contrasena"=>"required",
+            "id_tipos"=>"required", //buscar laa validacion correcta
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Usuarios::create(['nombre'=>$request->nombre,
+                        'apellidoPaterno'=>$request->apellidoPaterno,
+                        'apellidoMaterno'=>$request->apellidoMaterno,
+                        'nombreUsuario'=>$request->nombreUsuario,
+                        'correo'=>$request->correo,
+                        'contrasena'=>$request->contrasena,
+                        'id_tipos'=>$request->id_tipos,]);
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -57,9 +109,10 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuarios $usuarios)
+    public function edit(usuarios $usuario)
     {
-        //
+        $tipos = tipos::all();
+        return view("usuarios.updateUsuarios",compact("usuario","tipos"));
     }
 
     /**
@@ -69,9 +122,26 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuarios $usuarios)
+    public function update(Request $request, usuarios $usuario)
     {
-        //
+        $request->validate([
+            "nombre"=>"required",
+            "apellidoPaterno"=>"required",
+            "apellidoMaterno"=>"required", 
+            "nombreUsuario"=>"required|min:3|max:20",
+            "correo"=>"required",
+            "contrasena"=>"required",
+            "id_tipos"=>"required", //buscar laa validacion correcta
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+        $usuario->update(['nombre'=>$request->nombre,
+                        'apellidoPaterno'=>$request->apellidoPaterno,
+                        'apellidoMaterno'=>$request->apellidoMaterno,
+                        'nombreUsuario'=>$request->nombreUsuario,
+                        'correo'=>$request->correo,
+                        'contrasena'=>$request->contrasena,
+                        'id_tipos'=>$request->id_tipos,]);
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -80,8 +150,9 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuarios $usuarios)
+    public function destroy(usuarios $usuario)
     {
-        //
+        $usuario->delete();
+        return redirect()->route("usuarios.index");
     }
 }
