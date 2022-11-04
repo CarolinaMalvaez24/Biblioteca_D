@@ -17,30 +17,72 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form id="c_form-h" class="">
+          <form id="c_form-h" method="POST" action="{{route('usuarios.update',$usuario->id)}}">
+            @csrf
+            @method('PUT')
             <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Nombre</label>
-              <div class="col-10">
-                <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required="required"> </div>
-            </div>
-            <div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label" contenteditable="true">Apellido Paterno<br></label>
-              <div class="col-10">
-                <input type="text" class="form-control" id="inputApPaterno" placeholder="Apellido"> </div>
-            </div>
-            <div class="form-group row"><label class="col-2">Apellido Materno</label>
-              <div class="col-10"><input type="text" class="form-control" id="inputApMaterno" placeholder="Apellido"></div>
-            </div>
-            <div class="form-group row"><label class="col-2">Nombre de usuario<br></label>
-              <div class="col-10"><input type="text" class="form-control" placeholder="username" id="inputusername"></div>
-            </div>
-            <div class="form-group row"><label class="col-2">Correo</label>
-              <div class="col-10"><input type="email" class="form-control" id="inputemail" placeholder="email"></div>
-            </div>
-            <div class="form-group row"><label class="col-2">Contraseña</label>
-              <div class="col-10"><input type="password" class="form-control" id="inputpassword" placeholder="Contraseña"></div>
-            </div>
-            <div class="form-group row"><label class="col-2">Confirmar Contraseña</label>
-              <div class="col-10"><input type="password" class="form-control" id="inputconfirmpassword" placeholder="Confirmar Contraseña"></div>
-            </div><button type="submit" class="btn btn-primary">Agregar<br></button>
+          <div class="col-10">
+            <input type="text" class="form-control @error('nombre')is-invalid @enderror" id="nombre" name="nombre" placeholder="Nombre" value="{{$usuario->nombre}}"> 
+            @error('nombre')
+                  <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label" contenteditable="true">Apellido Paterno<br></label>
+          <div class="col-10">
+            <input type="text" class="form-control @error('apellidoPaterno')is-invalid @enderror" id="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno" value="{{$usuario->apellidoPaterno}}"> 
+            @error('apellidoPaterno')
+                  <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row"><label class="col-2">Apellido Materno</label>
+          <div class="col-10"><input type="text" class="form-control @error('apellidoMaterno')is-invalid @enderror" id="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido Materno" value="{{$usuario->apellidoMaterno}}">
+            @error('apellidoMaterno')
+                  <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row"><label class="col-2">Nombre de usuario<br></label>
+          <div class="col-10"><input type="text" class="form-control @error('nombreUsuario')is-invalid @enderror" placeholder="username" id="nombreUsuario" name="nombreUsuario" value="{{$usuario->nombreUsuario}}">
+            @error('nombreUsuario')
+                  <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row"><label class="col-2">Correo</label>
+          <div class="col-10"><input type="email" class="form-control @error('correo')is-invalid @enderror" id="correo" name="correo" placeholder="email" value="{{$usuario->correo}}">
+          @error('correo')
+                  <div class="invalid-feedback">{{$message}}</div>
+          @enderror
+          </div>
+        </div>
+        <div class="form-group row"><label class="col-2">Contraseña</label>
+          <div class="col-10"><input type="password" class="form-control @error('contrasena')is-invalid @enderror" id="contrasena" name="contrasena" placeholder="Contraseña" value="{{$usuario->contrasena}}">
+            @error('contrasena')
+                  <div class="invalid-feedback">{{$message}}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row"><label class="col-2">Confirmar Contraseña</label>
+          <div class="col-10"><input type="password" class="form-control" id="inputconfirmpassword" placeholder="Confirmar Contraseña" value="{{$usuario->contrasena}}"></div>
+          </div>
+
+          <div class="form-group row"><label class="col-2">Cargo</label>
+          <div class="col-10"><select class="form-select @error('id_tipos')is-invalid @enderror" aria-label="Default select example" id="id_tipos" name="id_tipos">
+            <option selected="" value="Open this select menu">Seleccionar cargo</option>
+            @foreach($tipos as $tipo)
+              <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+            @endforeach
+          </select>
+          @error('id_tipos')
+                  <div class="invalid-feedback">{{$message}}</div>
+          @enderror
+        </div>
+        </div>
+        </div>
+          
+        </div><button type="submit" class="btn btn-primary">Actualizar<br></button>
           </form>
         </div>
       </div>

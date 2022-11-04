@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class asigna_autores extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable=[
-        'id_libros',
+        'id_libro',
         'id_autores'
     ];
 }

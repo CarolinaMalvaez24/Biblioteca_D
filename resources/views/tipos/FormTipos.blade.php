@@ -21,7 +21,11 @@
             @csrf
             <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">Tipo</label>
               <div class="col-10">
-                <input type="text" class="form-control" id="tipo" name="tipo" required="required" placeholder="Agregar tipo de usuario"> </div>
+                <input type="text" class="form-control @error('tipo')is-invalid @enderror" id="tipo" name="tipo"  placeholder="Agregar tipo de usuario"  value="{{old('tipo')}}">
+                @error('tipo')
+                  <div class="invalid-feedback">{{$message}}</div>
+                 @enderror
+                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Agregar<br></button>
           </form>

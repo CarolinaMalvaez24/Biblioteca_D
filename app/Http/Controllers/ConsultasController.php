@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\consultas;
 use Illuminate\Http\Request;
+use App\Models\libros;
+use App\Models\usuarios;
 
 class ConsultasController extends Controller
 {
@@ -14,8 +16,13 @@ class ConsultasController extends Controller
      */
     public function index()
     {
+        $consulta=consultas::join("usuarios","usuarios.id","=","consultas.id_usuarios")
+            ->join("libros","libros.id","=","consultas.id_libros")
+            ->select("consultas.id","usuarios.nombreUsuario","libros.descripcion","consultas.fechaConsulta")
+            ->orderby("consultas.id")
+            ->get();
         
-        $consulta=consultas::all();
+        ///$consulta=consultas::all();
         return view("consultas.TableConsultas",compact("consulta"));
     }
 
@@ -26,7 +33,9 @@ class ConsultasController extends Controller
      */
     public function create()
     {
-        //
+        $usuarios=usuarios::all();
+        $libros=libros::all();
+        return view("consultas.FormConsultas",compact("usuarios","libros"));
     }
 
     /**
@@ -37,7 +46,16 @@ class ConsultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "id_usuarios"=>"required", //buscar su validacion
+            "id_libros"=>"required",   //buscar su validacion
+            "fechaConsulta"=>"required"
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+        Consultas::create(['id_usuarios'=>$request->id_usuarios,
+                          'id_libros'=>$request->id_libros,
+                           'fechaConsulta'=>$request->fechaConsulta,]);
+        return redirect()->route('consultas.index');
     }
 
     /**
@@ -57,9 +75,11 @@ class ConsultasController extends Controller
      * @param  \App\Models\consultas  $consultas
      * @return \Illuminate\Http\Response
      */
-    public function edit(consultas $consultas)
+    public function edit(consultas $consulta)
     {
-        //
+        $usuarios=usuarios::all();
+        $libros=libros::all();
+        return view("consultas.updateConsultas",compact("consulta","usuarios","libros"));
     }
 
     /**
@@ -69,9 +89,18 @@ class ConsultasController extends Controller
      * @param  \App\Models\consultas  $consultas
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, consultas $consultas)
+    public function update(Request $request, consultas $consulta)
     {
-        //
+        $request->validate([
+            "id_usuarios"=>"required", //buscar su validacion
+            "id_libros"=>"required",   //buscar su validacion
+            "fechaConsulta"=>"required"
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+        $consulta->update(['id_usuarios'=>$request->id_usuarios,
+                          'id_libros'=>$request->id_libros,
+                           'fechaConsulta'=>$request->fechaConsulta,]);
+        return redirect()->route('consultas.index');
     }
 
     /**
@@ -80,8 +109,9 @@ class ConsultasController extends Controller
      * @param  \App\Models\consultas  $consultas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(consultas $consultas)
+    public function destroy(consultas $consulta)
     {
-        //
+        $consulta->delete();
+        return redirect()->route("consultas.index");
     }
 }
