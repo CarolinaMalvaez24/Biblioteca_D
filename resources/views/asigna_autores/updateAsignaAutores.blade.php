@@ -24,7 +24,7 @@
               <div class="col-3"><select class="form-select" aria-label="Default select example" name="id_libro" id="id_libro">
                   <option selected="" value="Open this select menu">Seleccionar Libro</option>
                   @foreach($libro as $libro)
-                     <option value="{{$libro->id}}">{{$libro->descripcion}}</option>
+                     <option value="{{$libro->id}}" {{$libro->id== $asigna_autore->id_libro ? 'selected' : ''}}>{{$libro->descripcion}}</option>
                   @endforeach
                 </select>
               </div>
@@ -33,7 +33,7 @@
               <div class="col-3"><select class="form-select" aria-label="Default select example" id="id_autores" name="id_autores">
                   <option selected="" value="Open this select menu">Seleccionar autor</option>
                   @foreach($autores as $autor)
-                     <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
+                     <option value="{{$autor->id}}" {{$autor->id== $asigna_autore->id_autores ? 'selected' : ''}}>{{$autor->nombre_autor}}</option>
                   @endforeach
                 </select>
               </div>

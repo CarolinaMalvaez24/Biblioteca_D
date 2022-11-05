@@ -72,7 +72,7 @@
           <div class="col-10"><select class="form-select @error('id_tipos')is-invalid @enderror" aria-label="Default select example" id="id_tipos" name="id_tipos">
             <option selected="" value="Open this select menu">Seleccionar cargo</option>
             @foreach($tipos as $tipo)
-              <option value="{{$tipo->id}}">{{$tipo->tipo}}</option>
+              <option value="{{$tipo->id}}" {{$tipo->id== $usuario->id_tipos ? 'selected' : ''}}>{{$tipo->tipo}}</option>
             @endforeach
           </select>
           @error('id_tipos')

@@ -43,21 +43,21 @@
           </div>
         </div>
         <div class="form-group row"><label class="col-2">Nombre de usuario<br></label>
-          <div class="col-10"><input type="text" class="form-control @error('nombreUsuario')is-invalid @enderror" placeholder="username" id="nombreUsuario" name="nombreUsuario">
+          <div class="col-10"><input type="text" class="form-control @error('nombreUsuario')is-invalid @enderror" placeholder="Ingresar usuario" id="nombreUsuario" name="nombreUsuario">
             @error('nombreUsuario')
                   <div class="invalid-feedback">{{$message}}</div>
             @enderror
           </div>
         </div>
         <div class="form-group row"><label class="col-2">Correo</label>
-          <div class="col-10"><input type="email" class="form-control @error('correo')is-invalid @enderror" id="correo" name="correo" placeholder="email">
+          <div class="col-10"><input type="email" class="form-control @error('correo')is-invalid @enderror" id="correo" name="correo" placeholder="ingresar correo">
           @error('correo')
                   <div class="invalid-feedback">{{$message}}</div>
           @enderror
           </div>
         </div>
         <div class="form-group row"><label class="col-2">Contraseña</label>
-          <div class="col-10"><input type="password" class="form-control @error('contrasena')is-invalid @enderror" id="contrasena" name="contrasena" placeholder="Contraseña">
+          <div class="col-10"><input type="password" class="form-control @error('contrasena')is-invalid @enderror" id="contrasena" name="contrasena" placeholder="ingresar contraseña">
             @error('contrasena')
                   <div class="invalid-feedback">{{$message}}</div>
             @enderror

@@ -39,7 +39,7 @@
               <div class="col-10"><select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style="	text: 0px 0px 4px black;">
                   <option selected=""> Elegir editorial </option>
                   @foreach($editorial as $editor) 
-                    <option value="{{$editor->id}}"> {{$editor->nombre_editorial}} </option>
+                    <option value="{{$editor->id}}" {{$editor->id== $libro->id_editoriales ? 'selected' : ''}}> {{$editor->nombre_editorial}} </option>
                   @endforeach
                 </select>
                 @error('id_editoriales')
@@ -51,7 +51,7 @@
               <div class="col-10"><select checked="checked" class="form-control @error('id_categorias')is-invalid @enderror" id="id_categorias" name="id_categorias" required="required" style="	text: 0px 0px 4px black;">
                   <option selected=""> Elegir categoria </option>
                   @foreach($categoria as $categoria)
-                    <option value="{{$categoria->id}}">{{$categoria->tipo_categoria}}</option>
+                    <option value="{{$categoria->id}}" {{$categoria->id== $libro->id_categorias ? 'selected' : ''}}>{{$categoria->tipo_categoria}}</option>
                   @endforeach
                 </select>
                 @error('id_categorias')
