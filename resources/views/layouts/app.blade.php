@@ -54,36 +54,49 @@
                                     Autores
                                 </a>
                             </li>
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a  class="nav-link" href="{{url('libros')}}">
                                     Libros
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('asigna_autores')}}">
                                     Asigna Autores
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('categorias')}}">
                                     Categorias
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('consultas')}}">
                                     Consultas
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('editoriales')}}">
                                     Editoriales
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('estantes')}}">
                                     Estantes
                                 </a>
                             </li>
+                            @endcan
+                            @can('autores.create')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('tipos')}}">
                                     Tipos
@@ -94,6 +107,7 @@
                                     Usuarios
                                 </a>
                             </li>
+                            @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
