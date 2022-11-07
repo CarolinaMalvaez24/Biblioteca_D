@@ -19,19 +19,19 @@ class UserSeeder extends Seeder
     {
         User::create([
 
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
+            'name' => 'Julio Alejandro Lopez Espinoza',
+            'email' => 'Raptor.67.jL@gmail.com',
             'email_verified_at' => now(),
-            'password' => 'Admin12345', // password
+            'password' => 'JulioRS02', // password
             'remember_token' => Str::random(10),
         ])->assignRole('admin');
 
         User::create([
 
-            'name' => 'Julio',
-            'email' => 'Julio67@admin.com',
+            'name' => 'Efren Barcenas',
+            'email' => 'Efren@raton.com',
             'email_verified_at' => now(),
-            'password' => 'JulioRS02', // password
+            'password' => 'raton123', // password
             'remember_token' => Str::random(10),
         ])->assignRole('editor');
 
