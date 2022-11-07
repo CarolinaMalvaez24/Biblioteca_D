@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index() {
         $autores = autores::all();
-        return view('autores.TableAutores', compact('autores'));
+        return view('autores.showautores', compact('autores'));
     }
     
     public function create() {
