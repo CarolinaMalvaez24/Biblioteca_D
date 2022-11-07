@@ -54,7 +54,7 @@ class AutoresController extends Controller
      */
     public function show(autores $autores)
     {
-        //
+        return view('autores.showautores', compact('autore'));
     }
 
     /**

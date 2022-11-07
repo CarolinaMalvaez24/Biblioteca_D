@@ -24,7 +24,7 @@ class RolaSeeder extends Seeder
         Permission::create(['name'=>'autores.index'])->syncRoles([$admin,$editor]);
         Permission::create(['name'=>'autores.create'])->syncRoles([$admin]);
         Permission::create(['name'=>'autores.store'])->syncRoles([$admin]);
-        Permission::create(['name'=>'autores.show'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.show'])->syncRoles([$admin,$usuario]);
         Permission::create(['name'=>'autores.edit'])->syncRoles([$admin]);
         Permission::create(['name'=>'autores.update'])->syncRoles([$admin]);
         Permission::create(['name'=>'autores.destroy'])->syncRoles([$admin]);
