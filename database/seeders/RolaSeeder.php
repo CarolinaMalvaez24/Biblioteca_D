@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -17,12 +16,19 @@ class RolaSeeder extends Seeder
      */
     public function run()
     {
-        $role1= Role::create(['name'=>'Admin']);
-        $role2= Role::create(['name'=>'consultor']);
+        $admin = Role::create(['name'=>'admin']);
+        $editor = Role::create(['name'=>'editor']);
+        $usuario = Role::create(['name'=>'usuario']);
 
-        Permission::create(['name'=>'asigna_autores.index'])->syncRoles([$role1,$role2]);
-        Permission::create(['name'=>'asigna_autores.create'])->syncRoles([$role1]);
-        Permission::create(['name'=>'asigna_autores.edit'])->syncRoles([$role1]);
-        Permission::create(['name'=>'asigna_autores.destroy'])->syncRoles([$role1]);
+        Permission::create(['name'=>'dashboard'])->syncRoles([$admin,$editor,$usuario]);
+        Permission::create(['name'=>'autores.index'])->syncRoles([$admin,$editor]);
+        Permission::create(['name'=>'autores.create'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.store'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.show'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.edit'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.update'])->syncRoles([$admin]);
+        Permission::create(['name'=>'autores.destroy'])->syncRoles([$admin]);
+
+
     }
 }

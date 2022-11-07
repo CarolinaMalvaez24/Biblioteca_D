@@ -25,8 +25,8 @@
               <thead class="thead-dark">
                 <tr>
                   <th>#</th>
-                  <th>id_libro</th>
-                  <th>id_autores<br></th>
+                  <th>Nombre de libro</th>
+                  <th>Nombre de Autor(es)<br></th>
                   <th>Opciones</th>
                 </tr>
               </thead>
