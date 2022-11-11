@@ -49,51 +49,24 @@
                                 </li>
                             @endif
                         @else
-                            <!--<li class="nav-item">
-                                <a class="nav-link" href="{{url('autores')}}">
-                                    Autores
-                                </a>
-                            </li>-->
-                            <li class="nav-item">
-                                <a  class="nav-link" href="/libros">
-                                    Libros
-                                </a>
-                            </li>
-                            <!--<li class="nav-item">
-                                <a class="nav-link" href="{{url('asigna_autores')}}">
-                                    Asigna Autores
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('categorias')}}">
-                                    Categorias
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('consultas')}}">
-                                    Consultas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('editoriales')}}">
-                                    Editoriales
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('estantes')}}">
-                                    Estantes
-                                </a>
-                            </li>-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="/roles">
-                                    Roles
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/usuarios">
-                                    Usuarios
-                                </a>
-                            </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('usuarios')}}">
+                                Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('roles')}}">
+                                Roles
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('libros')}}">
+                                Libros
+                            </a>
+                        </li>
+
+ 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

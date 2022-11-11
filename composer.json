@@ -12,7 +12,10 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
+<<<<<<< HEAD
         "laravelcollective/html": "^6.3",
+=======
+>>>>>>> 783a6eb27f80486a1b90c9105eeb6982643d36c3
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {

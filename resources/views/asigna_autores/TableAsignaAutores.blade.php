@@ -27,6 +27,7 @@
                   <th>#</th>
                   <th>Titulo del libro</th>
                   <th>Nombre del autor<br></th>
+
                   <th>Opciones</th>
                 </tr>
               </thead>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolController;
@@ -21,9 +23,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+require __DIR__.'/auth.php';
+
+
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
@@ -34,6 +41,7 @@ Route::group(['middleware'=>['auth']],function(){
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
+
 Route::resource("asigna_autores",\App\Http\Controllers\AsignaAutoresController::class);
 Route::resource("categorias",\App\Http\Controllers\CategoriasController::class);
 Route::resource("consultas" ,\App\Http\Controllers\ConsultasController::class);
