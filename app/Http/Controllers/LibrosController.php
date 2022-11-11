@@ -9,11 +9,14 @@ use App\Models\categorias;
 
 class LibrosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   function __construct()
+    {
+         $this->middleware('permission:ver-libro|crear-libro|editar-libro|borrar-libro', ['only' => ['index']]);
+         $this->middleware('permission:crear-libro', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-libro', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-libro', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
 

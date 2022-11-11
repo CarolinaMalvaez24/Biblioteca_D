@@ -49,17 +49,17 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="{{url('autores')}}">
                                     Autores
                                 </a>
-                            </li>
+                            </li>-->
                             <li class="nav-item">
-                                <a  class="nav-link" href="{{url('libros')}}">
+                                <a  class="nav-link" href="/libros">
                                     Libros
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link" href="{{url('asigna_autores')}}">
                                     Asigna Autores
                                 </a>
@@ -83,14 +83,14 @@
                                 <a class="nav-link" href="{{url('estantes')}}">
                                     Estantes
                                 </a>
-                            </li>
+                            </li>-->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('tipos')}}">
-                                    Tipos
+                                <a class="nav-link" href="/roles">
+                                    Roles
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('usuarios')}}">
+                                <a class="nav-link" href="/usuarios">
                                     Usuarios
                                 </a>
                             </li>
