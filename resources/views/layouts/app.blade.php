@@ -49,24 +49,26 @@
                                 </li>
                             @endif
                         @else
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('usuarios')}}">
-                                Usuarios
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('roles')}}">
-                                Roles
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('libros')}}">
-                                Libros
-                            </a>
-                        </li>
-
- 
+                            
+                            <li class="nav-item">
+                                <a  class="nav-link" href="/libros">
+                                    Libros
+                                </a>
+                            </li>
+                            @can('ver-usuarios')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/usuarios">
+                                    Usuarios
+                                </a>
+                            </li>
+                            @endcan
+                            @can('ver-roles')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/roles">
+                                    Roles
+                                </a>
+                            </li>
+                            @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
