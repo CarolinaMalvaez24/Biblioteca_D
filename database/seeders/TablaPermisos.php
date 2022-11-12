@@ -27,7 +27,14 @@ class TablaPermisos extends Seeder
             'ver-libro',
             'crear-libro',
             'editar-libro',
-            'borrar-libro'
+            'borrar-libro',
+
+            //permisos para usuario
+
+            'ver-usuario',
+            'crear-usuario',
+            'editar-usuario',
+            'borrar-usuario'
         ];
 
         foreach($permisos as $permiso){

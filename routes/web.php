@@ -23,25 +23,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-require __DIR__.'/auth.php';
-
-
-
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::resource("roles",RolController::class);
     Route::resource("usuarios",UsuarioController::class);
     Route::resource("libros",LibrosController::class);
+    
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
-
 Route::resource("asigna_autores",\App\Http\Controllers\AsignaAutoresController::class);
 Route::resource("categorias",\App\Http\Controllers\CategoriasController::class);
 Route::resource("consultas" ,\App\Http\Controllers\ConsultasController::class);
