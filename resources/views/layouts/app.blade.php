@@ -63,20 +63,17 @@
                                 <a class="dropdown-item" href="{{url('libros')}}">
                                     Libros
                                 </a>
-                                <a class="dropdown-item" href="{{url('asigna_autores')}}">
-                                    Asignacion de autores
-                                </a>
                                 <a class="dropdown-item" href="{{url('categorias')}}">
                                     Categorias
-                                </a>
-                                <a class="dropdown-item" href="{{url('consultas')}}">
-                                    Consultas de libros
                                 </a>
                                 <a class="dropdown-item" href="{{url('editoriales')}}">
                                     Editoriales
                                 </a>
-                                <a class="dropdown-item" href="{{url('users')}}">
+                                <a class="dropdown-item" href="{{url('usuarios')}}">
                                     Usuarios
+                                </a>
+                                <a class="dropdown-item" href="{{url('roles')}}">
+                                    Roles
                                 </a>
                             </div>
                         </li>
@@ -85,7 +82,7 @@
                                 Registros
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('autores')}}">
+                                <a class="dropdown-item" href="{{url('libros')}}">
                                     Libro
                                 </a>
                             </div>
