@@ -4,7 +4,7 @@
     active
 @endsection
 @section("content")
-  <div class="py-5">
+  <div class="py-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -13,7 +13,6 @@
       </div>
     </div>
   </div>
-<div class="py-5">
     <div class="container col-sm-4">
         <div class="row">
             <div class="d-flex justify-content-center card">
@@ -68,14 +67,28 @@
                             </div>
                             <a class="btn bi-plus" href="{{route('categorias.create')}}"></a>
                         </div>
-                        <div style="float: right">
-                        <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
-                        border-top border-bottom border-light rounded-lg active text-decoration-none">Continuar<br></button>
+                        <div class="my-2 d-lg-flex">
+                            <label class="col-2">Autor</label>
+                            <div class="d-flex col-lg-9">
+                                <select checked="checked" class="form-control @error('id_autor')is-invalid @enderror" id="id_autor" name="id_categorias" required="required" style="  text: 0px 0px 4px black;">
+                                    <option selected="0"> Elegir Autor </option>
+                                    @foreach($autores as $autor)
+                                        <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_autor')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <a class="btn bi-plus" href="{{route('categorias.create')}}"></a>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
+                            border-top border-bottom border-light rounded-lg active text-decoration-none">Continuar<br></button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

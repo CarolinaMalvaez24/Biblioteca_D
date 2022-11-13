@@ -52,7 +52,7 @@ class AutoresController extends Controller
      * @param  \App\Models\autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function show(autores $autores)
+    public function show(autores $autore)
     {
         return view('autores.showautores', compact('autore'));
     }
