@@ -46,7 +46,7 @@
 
                       <form action="{{route('editoriales.destroy',$datos->id)}}" method="post">
                           @csrf
-                          @method('delete') 
+                          @method('delete')
                           <button class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                            type="submit">
