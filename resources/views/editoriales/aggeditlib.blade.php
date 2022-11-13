@@ -18,6 +18,10 @@
           <div class="row">
               <div class="d-flex justify-content-center card">
                   <div class="card-body">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d0091dbe4b09f2e256451bb6af57260eabe3743
                       <form id="c_form-h" method="POST" action="{{url('aggedit')}}">
                           @csrf
                           <div class="form-group row"><label class="col-2">Editorial</label>

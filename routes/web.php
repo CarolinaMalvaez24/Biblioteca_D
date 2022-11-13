@@ -12,6 +12,7 @@ use \App\Http\Controllers\CategoriasController;
 use \App\Http\Controllers\EditorialesController;
 use App\Http\Controllers\registrocategoriaLcontroller;
 use App\Http\Controllers\reglibeditorialcontroller;
+use App\Http\Controllers\registroautorcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +41,11 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("editoriales",EditorialesController::class);
     Route::resource("categorias",CategoriasController::class);
     Route::resource("aggedit",reglibeditorialcontroller::class);
+<<<<<<< HEAD
     Route::resource('aggcategoria',registrocategoriaLcontroller::class);
+=======
+     Route::resource("autorRegistro",registroautorcontroller::class);
+>>>>>>> 7d0091dbe4b09f2e256451bb6af57260eabe3743
     
 });
 

@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="d-flex justify-content-center card">
                     <div class="card-body">
-                        <form id="c_form-h" method="POST" action="{{url ('autores')}}">
+                        <form id="c_form-h" method="POST" action="{{url ('autorRegistro')}}">
                             @csrf
                             <div class="form-group row">
                                 <label class="col-4">Nombre del Autor</label>

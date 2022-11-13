@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\categorias;
+use App\Models\editoriales;
+use App\Models\autores;
 use Illuminate\Http\Request;
+
 
 class registroautorcontroller extends Controller
 {
@@ -13,7 +16,10 @@ class registroautorcontroller extends Controller
      */
     public function index()
     {
-        //
+        $editorial=editoriales::all();
+        $categoria=categorias::all();
+        $autores=autores::all();
+        return view("libros.FormLibros",compact("editorial","categoria","autores"));
     }
 
     /**
@@ -23,7 +29,7 @@ class registroautorcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view("autores.FormLibroAutores");
     }
 
     /**
@@ -34,7 +40,14 @@ class registroautorcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nombre_autor"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Autores::create(['nombre_autor'=>$request->nombre_autor,]);
+        //dd($request);
+       return redirect()->route('libros.create');
     }
 
     /**
