@@ -39,6 +39,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("editoriales",EditorialesController::class);
     Route::resource("categorias",CategoriasController::class);
     Route::resource("aggedit",reglibeditorialcontroller::class);
+    Route::resource("consultas",\App\Http\Controllers\ConsultasController::class);
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);

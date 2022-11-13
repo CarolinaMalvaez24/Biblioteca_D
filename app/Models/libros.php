@@ -13,6 +13,7 @@ class libros extends Model
         'descripcion',
         'anio',
         'id_editoriales',
-        'id_categorias'
+        'id_categorias',
+        'id_autor'
     ];
 }

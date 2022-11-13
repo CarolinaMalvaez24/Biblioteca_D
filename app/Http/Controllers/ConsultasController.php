@@ -21,7 +21,7 @@ class ConsultasController extends Controller
             ->select("consultas.id","usuarios.nombreUsuario","libros.descripcion","consultas.fechaConsulta")
             ->orderby("consultas.id")
             ->get();
-        
+
         ///$consulta=consultas::all();
         return view("consultas.TableConsultas",compact("consulta"));
     }

@@ -77,13 +77,15 @@ class LibrosController extends Controller
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
             "id_categorias"=>"required", //buscar laa validacion correcta
+            "id_autor"=>"required",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
 
         Libros::create(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
                         'id_editoriales'=>$request->id_editoriales,
-                        'id_categorias'=>$request->id_categorias,]);
+                        'id_categorias'=>$request->id_categorias,
+                        'id_autor'=>$request->id_autor,]);
         //dd($request);
         return redirect()->route('libros.index');
     }
@@ -109,7 +111,8 @@ class LibrosController extends Controller
     {
         $editorial=editoriales::all();
         $categoria=categorias::all();
-        return view("libros.updateLibros",compact("libro","editorial","categoria"));
+        $autor=autores::all();
+        return view("libros.updateLibros",compact("libro"));
     }
 
     /**
@@ -126,13 +129,14 @@ class LibrosController extends Controller
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
             "id_categorias"=>"required", //buscar laa validacion correcta
+            "id_autor"=>"required"
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
         $libro->update(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
                         'id_editoriales'=>$request->id_editoriales,
-                        'id_categorias'=>$request->id_categorias]);
-
+                        'id_categorias'=>$request->id_categorias,
+                        'id_autor'=>$request->id_autor]);
         return redirect()->route('libros.index');
     }
 

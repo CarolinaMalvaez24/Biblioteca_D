@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\categorias;
 use App\Models\editoriales;
+use App\Models\autores;
 use Illuminate\Http\Request;
 
 class reglibeditorialcontroller extends Controller
@@ -14,7 +16,10 @@ class reglibeditorialcontroller extends Controller
     public function index()
     {
         $aggedit=editoriales::all();
-        return view("libros.FormLibros",compact("aggedit"));
+        $categoria=categorias::all();
+        $autores=autores::all();
+
+        return view("libros.FormLibros",compact("aggedit","categoria","autores",));
     }
 
     /**
