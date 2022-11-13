@@ -47,7 +47,7 @@ class reglibeditorialcontroller extends Controller
 
         Editoriales::create(['nombre_editorial'=>$request->nombre_editorial,]);
         //dd($request);
-        return redirect()->route('Libros.FormLibros');
+        return redirect()->route('libros.create');
     }
 
     /**

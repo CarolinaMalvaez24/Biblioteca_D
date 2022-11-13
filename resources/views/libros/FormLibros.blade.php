@@ -81,7 +81,7 @@
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
-                            <a class="btn bi-plus" href="{{route('autores.create')}}"></a>
+                            <a class="btn bi-plus" href="{{route('autorRegistro.create')}}"></a>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
