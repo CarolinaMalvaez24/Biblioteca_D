@@ -42,13 +42,8 @@
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
                                             <option selected=""> Elegir editorial </option>
-<<<<<<< HEAD
-                                            @foreach ($editorialss as $edit)
-                                                <option value="{{$[edit->id}}"> {{$edit->nombre_editorial}} </option>
-=======
                                             @foreach ($aggedit as $edit)
                                                 <option value="{{$edit->id}}"> {{$edit->nombre_editorial}} </option>
->>>>>>> 9ef448ecdcfc4ff953d03d2523428eab7384b2a6
                                             @endforeach
                                         </select>
                                         @error('id_editoriales')

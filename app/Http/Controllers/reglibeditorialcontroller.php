@@ -24,7 +24,7 @@ class reglibeditorialcontroller extends Controller
      */
     public function create()
     {
-        return view("libros.FormLibros");
+        return view("editoriales.aggeditlib");
     }
 
     /**
