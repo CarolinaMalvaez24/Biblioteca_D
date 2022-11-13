@@ -111,7 +111,8 @@ class LibrosController extends Controller
     {
         $editorial=editoriales::all();
         $categoria=categorias::all();
-        return view("libros.updateLibros",compact("libro","editorial","categoria"));
+        $autores=autores::all();
+        return view("libros.updateLibros",compact('libro','editorial','categoria','autores'));
     }
 
     /**
@@ -133,7 +134,8 @@ class LibrosController extends Controller
         $libro->update(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
                         'id_editoriales'=>$request->id_editoriales,
-                        'id_categorias'=>$request->id_categorias]);
+                        'id_categorias'=>$request->id_categorias,
+                        'id_autor'=>$request->id_autor]);
         
         return redirect()->route('libros.index');
     }

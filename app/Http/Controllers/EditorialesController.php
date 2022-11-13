@@ -38,7 +38,7 @@ class EditorialesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "nombre_editorial"=>"required|min:3|max:100",
+            "nombre_editorial"=>"required|min:3|max:100|unique:editoriales",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
 
