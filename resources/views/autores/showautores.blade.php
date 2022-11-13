@@ -50,7 +50,7 @@
                       border-top border-bottom border-light rounded-lg active text-decoration-none py-1"><i class="bi bi-trash3"></i></button>
                       </form>
                   </div>
-                </td>
+                  </td>
                   @endcan
                 </tr>
               @endforeach

@@ -33,7 +33,8 @@
                               </div>
                           </div>
                           <div class="text-center">
-                               <button type="submit" class="mt-3 btn btn-primary">Agregar</button>
+                               <button type="submit" class="mt-3 btn btn-dark text-capitalize border border-left border-right
+                            border-top border-bottom border-light rounded-lg active text-decoration-non">Agregar</button>
                           </div>
                       </form>
                   </div>

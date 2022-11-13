@@ -41,7 +41,7 @@
                       </div>
                       <div class="my-2 d-lg-flex">
                           <label class="col-2">Editorial</label>
-                          <div class="d-flex col-lg-9">
+                          <div class="d-flex col-lg-10">
                               <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
                                   <option selected="0"> Elegir editorial </option>
                                   @foreach ($editorial as $edit)
@@ -52,11 +52,10 @@
                               <div class="invalid-feedback">{{$message}}</div>
                               @enderror
                           </div>
-                          <a class="btn bi-plus" href="{{route('editoriales.create')}}"></a>
                       </div>
                       <div class="my-2 d-lg-flex">
                           <label class="col-2">Categoria</label>
-                          <div class="d-flex col-lg-9">
+                          <div class="d-flex col-lg-10">
                               <select checked="checked" class="form-control @error('id_categorias')is-invalid @enderror" id="id_categorias" name="id_categorias" required="required" style="  text: 0px 0px 4px black;">
                                   <option selected="0"> Elegir categoria </option>
                                   @foreach($categoria as $categori)
@@ -67,11 +66,10 @@
                               <div class="invalid-feedback">{{$message}}</div>
                               @enderror
                           </div>
-                          <a class="btn bi-plus" href="{{route('categorias.create')}}"></a>
                       </div>
                       <div class="my-2 d-lg-flex">
                           <label class="col-2">Autor</label>
-                          <div class="d-flex col-lg-9">
+                          <div class="d-flex col-lg-10">
                               <select checked="checked" class="form-control @error('id_autor')is-invalid @enderror" id="id_autor" name="id_autor" required="required" style="  text: 0px 0px 4px black;">
                                   <option selected="0"> Elegir Autor </option>
                                   @foreach($autores as $autor)
@@ -82,7 +80,6 @@
                               <div class="invalid-feedback">{{$message}}</div>
                               @enderror
                           </div>
-                          <a class="btn bi-plus" href="{{route('autores.create')}}"></a>
                       </div>
                       <div class="text-center">
                           <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
