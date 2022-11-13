@@ -75,8 +75,11 @@
                                 <a class="dropdown-item" href="{{url('editoriales')}}">
                                     Editoriales
                                 </a>
-                                <a class="dropdown-item" href="{{url('users')}}">
+                                <a class="dropdown-item" href="{{url('usuarios')}}">
                                     Usuarios
+                                </a>
+                                <a class="dropdown-item" href="{{url('roles')}}">
+                                    Roles
                                 </a>
                             </div>
                         </li>
