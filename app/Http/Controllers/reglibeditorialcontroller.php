@@ -13,7 +13,7 @@ class reglibeditorialcontroller extends Controller
      */
     public function index()
     {
-        $aggedit=editoriales::all();
+        $editoriale=editoriales::all();
         return view("libros.FormLibros",compact("aggedit"));
     }
 
