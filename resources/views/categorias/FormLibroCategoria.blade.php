@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="d-flex justify-content-center card">
                     <div class="card-body">
-                        <form id="c_form-h" method="post" action="{{url('categorias')}}" >
+                        <form id="c_form-h" method="post" action="{{url('aggcategoria')}}" >
                             @csrf
                             <div class="form-group row"><label class="col-3">Categoria</label>
                                 <div class="col-9"><input type="text" class="form-control @error('tipo_categoria')is-invalid @enderror" id="tipo_categoria" name="tipo_categoria" placeholder="Nombre de la Categoria" value="{{old('tipo_categoria')}}">

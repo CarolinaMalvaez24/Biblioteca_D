@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\categorias;
+use App\Models\editoriales;
+use App\Models\autores;
 
 class registrocategoriaLcontroller extends Controller
 {
@@ -13,7 +16,10 @@ class registrocategoriaLcontroller extends Controller
      */
     public function index()
     {
-        //
+        $editorial=editoriales::all();
+        $categoria=categorias::all();
+        $autores=autores::all();
+        return view("libros.FormLibros",compact("editorial","categoria","autores"));
     }
 
     /**
@@ -23,7 +29,7 @@ class registrocategoriaLcontroller extends Controller
      */
     public function create()
     {
-        //
+        return view("categorias.FormLibroCategoria");
     }
 
     /**
@@ -34,7 +40,14 @@ class registrocategoriaLcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "tipo_categoria"=>"required|min:3|max:100",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
+
+
+        Categorias::create(['tipo_categoria'=>$request->tipo_categoria,]);
+        //dd($request);
+        return redirect()->route('libros.create');
     }
 
     /**
@@ -54,9 +67,9 @@ class registrocategoriaLcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(categorias $categoria)
     {
-        //
+        return view("libros.FormLibros",compact("categoria"));
     }
 
     /**
@@ -68,7 +81,7 @@ class registrocategoriaLcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
