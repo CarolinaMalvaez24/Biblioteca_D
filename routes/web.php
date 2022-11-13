@@ -41,12 +41,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("editoriales",EditorialesController::class);
     Route::resource("categorias",CategoriasController::class);
     Route::resource("aggedit",reglibeditorialcontroller::class);
-<<<<<<< HEAD
     Route::resource('aggcategoria',registrocategoriaLcontroller::class);
-=======
-     Route::resource("autorRegistro",registroautorcontroller::class);
->>>>>>> 7d0091dbe4b09f2e256451bb6af57260eabe3743
-    
+    Route::resource("autorRegistro",registroautorcontroller::class);
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
