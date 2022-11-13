@@ -16,10 +16,10 @@ class registrocategoriaLcontroller extends Controller
      */
     public function index()
     {
-        $categoria=categorias::all();
         $editorial=editoriales::all();
+        $categoria=categorias::all();
         $autores=autores::all();
-        return view("libros.FormLibros",compact("categoria","editorial","autores"));
+        return view("libros.FormLibros",compact("editorial","categoria","autores"));
     }
 
     /**
@@ -29,7 +29,7 @@ class registrocategoriaLcontroller extends Controller
      */
     public function create()
     {
-        return view("libros.FormLibros");
+        return view("categorias.FormLibroCategoria");
     }
 
     /**
@@ -47,7 +47,7 @@ class registrocategoriaLcontroller extends Controller
 
         Categorias::create(['tipo_categoria'=>$request->tipo_categoria,]);
         //dd($request);
-        return redirect()->route('Libros.FormLibros');
+        return redirect()->route('libros.create');
     }
 
     /**
