@@ -59,13 +59,26 @@
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Permisos
+                            </a>
+                            <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{url('usuarios')}}">
+                                    Usuarios
+                                </a>
+                                <a class="dropdown-item" href="{{url('roles')}}">
+                                    Roles
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Bases de datos
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{url('autores')}}">
                                     Autores
                                 </a>
-                                <a class="dropdown-item" href="/libros">
+                                <a class="dropdown-item" href="{{url('libros')}}">
                                     Libros
                                 </a>
                                 <a class="dropdown-item" href="{{url('categorias')}}">
@@ -74,12 +87,7 @@
                                 <a class="dropdown-item" href="{{url('editoriales')}}">
                                     Editoriales
                                 </a>
-                                <a class="dropdown-item" href="{{url('usuarios')}}">
-                                    Usuarios
-                                </a>
-                                <a class="dropdown-item" href="{{url('roles')}}">
-                                    Roles
-                                </a>
+                                
                             </div>
                         </li>
                         <li class="nav-item dropdown">

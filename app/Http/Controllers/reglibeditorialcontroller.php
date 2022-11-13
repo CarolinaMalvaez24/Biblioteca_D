@@ -15,15 +15,10 @@ class reglibeditorialcontroller extends Controller
      */
     public function index()
     {
-        $aggedit=editoriales::all();
+        $editorial=editoriales::all();
         $categoria=categorias::all();
         $autores=autores::all();
-
-<<<<<<< HEAD
-        return view("libros.FormLibros",compact("aggedit","categoria","autores",));
-=======
-        return view("libros.FormLibros",compact("aggedit","categoria","autores"));
->>>>>>> bd2ab97ca412bbf4dc6b9a3eaf86bafddd4825e7
+        return view("libros.FormLibros",compact("editorial","categoria","autores"));
 
     }
 
