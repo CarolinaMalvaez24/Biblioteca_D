@@ -38,7 +38,8 @@
                   <th>{{$loop->index+1}}</th>
                   <td>{{$datos->name}}</td>
                   <td>
-                    @can('editar-rol')
+                    <div class="d-flex">
+                      @can('editar-rol')
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                          href="{{route('roles.edit',$datos->id)}}">
@@ -61,6 +62,7 @@
                       </button>
                       </form>
                       @endcan
+                    </div>
                   </td>
                 </tr>
               @endforeach

@@ -20,7 +20,8 @@
                   <div class="card-body">
                       <form id="c_form-h" method="post" action="{{url('editoriales')}}">
                           @csrf
-                          <div class="form-group row"><label class="col-2">Editorial</label>
+                          <div class="form-group row">
+                              <label class="col-2">Editorial</label>
                               <div class="col-10"><input type="text" class="form-control @error('nombre_editorial')is-invalid @enderror" placeholder="Nombre de la Editorial" id="nombre_editorial" name="nombre_editorial" value="{{old('nombre_editorial')}}">
                                   @error('nombre_editorial')
                                   <div class="invalid-feedback">{{$message}}</div>
@@ -28,7 +29,8 @@
                               </div>
                           </div>
                           <div class="text-center">
-                               <button type="submit" class="mt-3 btn btn-primary">Agregar</button>
+                               <button type="submit" class="mt-3 btn btn-dark text-capitalize border border-left border-right
+                            border-top border-bottom border-light rounded-lg active text-decoration-none">Agregar</button>
                           </div>
                       </form>
                   </div>

@@ -41,8 +41,10 @@
                                 <label class="col-2">Editorial</label>
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
-                                            <option selected=""> Elegir editorial </option>
+
+                                            <option selected="0"> Elegir editorial </option>
                                             @foreach ($editorial as $edit)
+
                                                 <option value="{{$edit->id}}"> {{$edit->nombre_editorial}} </option>
                                             @endforeach
                                         </select>
@@ -56,7 +58,7 @@
                             <label class="col-2">Categoria</label>
                             <div class="d-flex col-lg-9">
                                 <select checked="checked" class="form-control @error('id_categorias')is-invalid @enderror" id="id_categorias" name="id_categorias" required="required" style="  text: 0px 0px 4px black;">
-                                    <option selected=""> Elegir categoria </option>
+                                    <option selected="0"> Elegir categoria </option>
                                     @foreach($categoria as $categori)
                                         <option value="{{$categori->id}}">{{$categori->tipo_categoria}}</option>
                                     @endforeach
@@ -70,7 +72,7 @@
                         <div class="my-2 d-lg-flex">
                             <label class="col-2">Autor</label>
                             <div class="d-flex col-lg-9">
-                                <select checked="checked" class="form-control @error('id_autor')is-invalid @enderror" id="id_autor" name="id_categorias" required="required" style="  text: 0px 0px 4px black;">
+                                <select checked="checked" class="form-control @error('id_autor')is-invalid @enderror" id="id_autor" name="id_autor" required="required" style="  text: 0px 0px 4px black;">
                                     <option selected="0"> Elegir Autor </option>
                                     @foreach($autores as $autor)
                                         <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
