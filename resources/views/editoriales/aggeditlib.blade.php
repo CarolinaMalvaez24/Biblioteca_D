@@ -18,12 +18,7 @@
           <div class="row">
               <div class="d-flex justify-content-center card">
                   <div class="card-body">
-<<<<<<< HEAD
-                      <form id="c_form-h" method="POST" action="{{url('libros')}}">
-
-=======
                       <form id="c_form-h" method="POST" action="{{url('aggedit')}}">
->>>>>>> b42ad3454e55dd6bbf4917a6a14cf2494bdd9d0c
                           @csrf
                           <div class="form-group row"><label class="col-2">Editorial</label>
                               <div class="col-10"><input type="text" class="form-control @error('nombre_editorial')is-invalid @enderror" placeholder="Nombre de la Editorial" id="nombre_editorial" name="nombre_editorial" value="{{old('nombre_editorial')}}">
