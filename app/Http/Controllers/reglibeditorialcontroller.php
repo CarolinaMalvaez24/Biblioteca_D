@@ -42,7 +42,7 @@ class reglibeditorialcontroller extends Controller
 
         Editoriales::create(['nombre_editorial'=>$request->nombre_editorial,]);
         //dd($request);
-        return redirect()->route('aggedit.index');
+        return redirect()->route('Libros.FormLibros');
     }
 
     /**
@@ -64,7 +64,7 @@ class reglibeditorialcontroller extends Controller
      */
     public function edit(editoriales $editoriale)
     {
-        return view("editoriales.updateEditoriales",compact("editoriale"));
+        return view("libros.FormLibros",compact("editoriale"));
     }
 
     /**
