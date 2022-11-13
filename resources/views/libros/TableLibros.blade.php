@@ -43,6 +43,7 @@
                   <td>{{$datos->nombre_editorial}}</td>
                   <td>{{$datos->tipo_categoria}}</td>
                   <td>
+                    <div class="d flex>
                     @can('editar-libro')
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
@@ -65,6 +66,7 @@
                       </button>
                       </form>
                       @endcan
+                  </div>
                   </td>
                 </tr>
               @endforeach

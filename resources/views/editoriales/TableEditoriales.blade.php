@@ -35,6 +35,7 @@
                   <th>{{$loop->index+1}}</th>
                   <td>{{$datos->nombre_editorial}}</td>
                   <td>
+                    <div class="d-flex">
                       <a class="btn btn-dark text-capitalize border border-left border-right
         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                          href="{{route('editoriales.edit',$datos->id)}}">
@@ -55,8 +56,7 @@
                           </svg>
                       </button>
                       </form>
-
-                      
+                    </div>
                   </td>
                 </tr>
               @endforeach
