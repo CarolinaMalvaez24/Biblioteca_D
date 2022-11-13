@@ -44,7 +44,6 @@
 
                                             <option selected="0"> Elegir editorial </option>
                                             @foreach ($editorial as $edit)
-
                                                 <option value="{{$edit->id}}"> {{$edit->nombre_editorial}} </option>
                                             @endforeach
                                         </select>
