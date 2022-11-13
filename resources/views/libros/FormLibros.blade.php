@@ -41,13 +41,10 @@
                                 <label class="col-2">Editorial</label>
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
-<<<<<<< HEAD
+
                                             <option selected="0"> Elegir editorial </option>
-                                            @foreach ($aggedit as $edit)
-=======
-                                            <option selected=""> Elegir editorial </option>
                                             @foreach ($editorial as $edit)
->>>>>>> 2da6c3d72ab16acee565d22eaf0ff86b5fabc8f1
+
                                                 <option value="{{$edit->id}}"> {{$edit->nombre_editorial}} </option>
                                             @endforeach
                                         </select>
