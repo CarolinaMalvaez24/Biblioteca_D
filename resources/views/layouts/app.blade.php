@@ -18,6 +18,11 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script>
+        $( document ).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+        });
+    </script>
 </head>
 <body>
 <div id="app">
