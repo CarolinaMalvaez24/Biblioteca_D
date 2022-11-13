@@ -19,7 +19,7 @@ class reglibeditorialcontroller extends Controller
         $categoria=categorias::all();
         $autores=autores::all();
 
-        //return view("libros.FormLibros",compact("aggedit","categoria","autores",));
+        return view("libros.FormLibros",compact("aggedit","categoria","autores"));
 
     }
 

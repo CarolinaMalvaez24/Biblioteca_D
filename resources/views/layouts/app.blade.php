@@ -60,7 +60,7 @@
                                 <a class="dropdown-item" href="{{url('autores')}}">
                                     Autores
                                 </a>
-                                <a class="dropdown-item" href="{{url('libros')}}">
+                                <a class="dropdown-item" href="/libros">
                                     Libros
                                 </a>
                                 <a class="dropdown-item" href="{{url('categorias')}}">

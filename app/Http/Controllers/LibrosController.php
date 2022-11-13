@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\editoriales;
 use App\Models\categorias;
 use App\Models\autores;
+
 class LibrosController extends Controller
 {
    function __construct()
@@ -22,15 +23,15 @@ class LibrosController extends Controller
 
         /*
             Consulta
-        SELECT libros.descripcion,libros.anio,editoriales.nombre_editorial,categorias.tipo_categoria from libros,editoriales,categorias WHERE editoriales.id=libros.id_editoriales and categorias.id=libros.id_categorias;
+        SELECT libros.descripcion,libros.anio,editoriales.nombre_editorial,categorias.tipo_categoria from libros,editoriales,categorias WHERE editoriales.id=libros.id_editoriales and categorias.id=libros.id_categorias; 
 
-        SELECT
+        SELECT 
         libros.descripcion,
         libros.anio,
         editoriales.nombre_editorial,
-        categorias.tipo_categoria
-        from libros
-        INNER JOIN editoriales ON editoriales.id=libros.id_editoriales
+        categorias.tipo_categoria 
+        from libros 
+        INNER JOIN editoriales ON editoriales.id=libros.id_editoriales 
         INNER JOIN categorias ON categorias.id=libros.id_categorias;
 
         $libro=libros::join("editoriales","editoriales.id","=","libros.id_editoriales")
@@ -44,7 +45,7 @@ class LibrosController extends Controller
         $libro=libros::join("editoriales","editoriales.id","=","libros.id_editoriales")
         ->join("categorias","categorias.id","=","libros.id_categorias")
         ->join("autores","autores.id","=","libros.id_autor")
-        ->select("libros.descripcion","libros.anio","editoriales.nombre_editorial","categorias.tipo_categoria","autores.nombre_autor")
+        ->select("libros.descripcion","libros.anio","editoriales.nombre_editorial","categorias.tipo_categoria","autores.nombre_autor","libros.id")
         ->get();
         return view("libros.TableLibros",compact("libro"));
     }
@@ -60,7 +61,6 @@ class LibrosController extends Controller
         $editorial=editoriales::all();
         $categoria=categorias::all();
         $autores=autores::all();
-
         return view("libros.FormLibros",compact('editorial','categoria','autores'));
     }
 
@@ -76,8 +76,8 @@ class LibrosController extends Controller
             "descripcion"=>"required",
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
-            "id_categorias"=>"required", //buscar laa validacion correcta
-            "id_autor"=>"required",
+            "id_categorias"=>"required",
+            "id_autor"=>"required" //buscar laa validacion correcta
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
 
@@ -111,8 +111,7 @@ class LibrosController extends Controller
     {
         $editorial=editoriales::all();
         $categoria=categorias::all();
-        $autor=autores::all();
-        return view("libros.updateLibros",compact("libro"));
+        return view("libros.updateLibros",compact("libro","editorial","categoria"));
     }
 
     /**
@@ -129,14 +128,13 @@ class LibrosController extends Controller
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
             "id_categorias"=>"required", //buscar laa validacion correcta
-            "id_autor"=>"required"
             ],[],["name"=>"nombre","content"=>"contenido"]);
-
+        
         $libro->update(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
                         'id_editoriales'=>$request->id_editoriales,
-                        'id_categorias'=>$request->id_categorias,
-                        'id_autor'=>$request->id_autor]);
+                        'id_categorias'=>$request->id_categorias]);
+        
         return redirect()->route('libros.index');
     }
 
