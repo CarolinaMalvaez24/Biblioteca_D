@@ -57,11 +57,11 @@ class LibrosController extends Controller
     public function create()
     {
 
-        $editorial=editoriales::all();
+        $aggedit=editoriales::all();
         $categoria=categorias::all();
         $autores=autores::all();
 
-        return view("libros.FormLibros",compact('editorial','categoria','autores'));
+        return view("libros.FormLibros",compact('aggedit','categoria','autores'));
     }
 
     /**

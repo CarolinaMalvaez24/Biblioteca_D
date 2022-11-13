@@ -13,8 +13,8 @@ class reglibeditorialcontroller extends Controller
      */
     public function index()
     {
-        $editorial=editoriales::all();
-        return view("libros.FormLibros",compact("editorial"));
+        $aggedit=editoriales::all();
+        return view("libros.FormLibros",compact("aggedit"));
     }
 
     /**
@@ -62,7 +62,7 @@ class reglibeditorialcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(editoriales $editoriale)
     {
         return view("editoriales.updateEditoriales",compact("editoriale"));
     }
