@@ -50,7 +50,7 @@
                                         <div class="invalid-feedback">{{$message}}</div>
                                         @enderror
                                 </div>
-                                <a class="btn bi-plus" href="{{route('editoriales.create')}}"></a>
+                                <a class="btn bi-plus" href="{{route('aggedit.create')}}"></a>
                             </div>
                         <div class="my-2 d-lg-flex">
                             <label class="col-2">Categoria</label>

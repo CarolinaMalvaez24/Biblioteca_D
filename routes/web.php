@@ -10,6 +10,8 @@ use App\Http\Controllers\LibrosController;
 use \App\Http\Controllers\AutoresController;
 use \App\Http\Controllers\CategoriasController;
 use \App\Http\Controllers\EditorialesController;
+use App\Http\Controllers\reglibeditorialcontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("autores",AutoresController::class);
     Route::resource("editoriales",EditorialesController::class);
     Route::resource("categorias",CategoriasController::class);
+    Route::resource("aggedit",reglibeditorialcontroller::class);
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
