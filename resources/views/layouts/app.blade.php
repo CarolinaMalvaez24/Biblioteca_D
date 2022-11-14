@@ -75,11 +75,11 @@
                                 Bases de datos
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('autores')}}">
-                                    Autores
-                                </a>
                                 <a class="dropdown-item" href="{{url('libros')}}">
                                     Libros
+                                </a>
+                                <a class="dropdown-item" href="{{url('autores')}}">
+                                    Autores
                                 </a>
                                 <a class="dropdown-item" href="{{url('categorias')}}">
                                     Categorias

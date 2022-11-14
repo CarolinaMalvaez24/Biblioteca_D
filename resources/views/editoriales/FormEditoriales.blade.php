@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="text-center"><b>Actualizar Categoria</b><br></h1>
+                    <h1 class="text-center"><b>Cargar Editorial</b><br></h1>
                 </div>
             </div>
         </div>

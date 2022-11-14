@@ -15,11 +15,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center py-1">
+                                    @can('crear-autor')
                                     <a class="btn btn-dark text-capitalize border border-left border-right
                                         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                        href="autores/create" data-toggle="tooltip" rel="tooltip" data-placement="top" title="Nuevo Registro">
                                         <i class="bi bi-file-earmark-plus"></i>
                                     </a>
+                                    @endcan
                                 </div>
                             </div>
                             <div class="row">
@@ -40,10 +42,12 @@
                                                     <td>{{$datos->nombre_autor}}</td>
                                                     <td>
                                                         <div class="d-flex">
+                                                            @can('editar-autor')
                                                             <a class="btn btn-dark text-capitalize border border-left border-right
                                 border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                                                href="{{route('autores.edit',$datos->id)}}" data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar dato">
-                                                                <i class="bi bi-pencil"></i></a>
+                                                                <i class="bi bi-pencil"></i></a>@endcan
+                                                            @can('borrar-autor')    
                                                             <form action="{{route("autores.destroy",$datos->id)}}" method="post">
                                                                 @csrf
                                                                 @method('delete')
@@ -53,6 +57,8 @@
                                                                     <i class="bi bi-trash3"></i>
                                                                 </button>
                                                             </form>
+                                                            @endcan
+
                                                         </div>
                                                     </td>
                                                 </tr>

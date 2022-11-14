@@ -15,11 +15,12 @@
                             </div>
                         </div>
                         <div class="col-md-12 text-center">
+                            @can('crear-categoria')
                             <a class="btn btn-dark text-capitalize border border-left border-right
                                 border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                 href="categorias/create">
                                 <i class="bi bi-file-earmark-plus"></i>
-                            </a>
+                            </a>@endcan
                         </div>
                         <div class="row py-1">
                             <div class="col-md-12">
@@ -39,11 +40,13 @@
                                                 <td>{{$datos->tipo_categoria}}</td>
                                                 <td>
                                                     <div class="d-flex">
+                                                        @can('editar-categoria')
                                                         <a class="btn btn-dark text-capitalize border border-left border-right
                                                             border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                                            href="{{route('categorias.edit',$datos->id)}}">
                                                             <i class="bi bi-pencil"></i>
-                                                        </a>
+                                                        </a>@endcan
+                                                        @can('borrar-categoria')
                                                         <form action="{{route("categorias.destroy",$datos->id)}}" method="post">
                                                             @csrf
                                                             @method('delete')
@@ -53,6 +56,7 @@
                                                                <i class="bi bi-trash3"></i>
                                                             </button>
                                                         </form>
+                                                        @endcan
                                                     </div>
                                                 </td>
                                             </tr>

@@ -18,11 +18,14 @@
                                             <h1 class="text-center">Tabla Editoriales<br></h1>
                                         </div>
                                     </div>
-                                    <div class="col-md-12 text-center"><a class="btn btn-dark text-capitalize border border-left border-right
+                                    <div class="col-md-12 text-center">
+                                        @can('crear-editorial')
+                                        <a class="btn btn-dark text-capitalize border border-left border-right
                                             border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                           href="editoriales/create" data-toggle="tooltip" rel="tooltip" data-placement="top" title="Nuevo Registro">
                                             <i class="bi bi-file-earmark-plus"></i>
                                         </a>
+                                        @endcan
                                     </div>
                                     <div class="row py-1">
                                         <div class="col-md-12">
@@ -42,11 +45,14 @@
                                                             <td>{{$datos->nombre_editorial}}</td>
                                                             <td>
                                                                 <div class="d-flex">
+                                                                    @can('editar-editorial')
                                                                     <a href="{{route('editoriales.edit',$datos->id)}}" class="btn btn-dark text-capitalize border border-left border-right
                                                                         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                                                        data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar dato">
                                                                         <i class="bi bi-pencil"></i>
                                                                     </a>
+                                                                    @endcan
+                                                                    @can('borrar-editorial')
                                                                     <form action="{{route('editoriales.destroy',$datos->id)}}" method="post">
                                                                         @csrf
                                                                         @method('delete')
@@ -57,6 +63,7 @@
                                                                             <i class="bi bi-trash3"></i>
                                                                         </button>
                                                                     </form>
+                                                                    @endcan
                                                                 </div>
                                                             </td>
                                                         </tr>
