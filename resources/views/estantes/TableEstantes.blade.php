@@ -39,9 +39,10 @@
                                         <td>{{$datos->name}}</td>
                                         <td>{{$datos->descripcion}}</td>
                                         <td>
+                                            <div class="d-flex">
                                             @can('editar-prestamo')
                                                 <a class="btn btn-dark text-capitalize border border-left border-right
-        border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
+                                                border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                                    href="{{route('prestamos.edit',$datos->id)}}">
                                                    <i class="bi bi-pencil"></i>
                                                 </a>@endcan
@@ -50,12 +51,13 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-dark text-capitalize border border-left border-right
-        border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
+                                                    border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                                                             type="submit">
                                                         <i class="bi bi-trash3"></i>
                                                     </button>
                                                 </form>
                                             @endcan
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
