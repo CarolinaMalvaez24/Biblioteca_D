@@ -98,6 +98,9 @@
                                 <a class="dropdown-item" href="{{url('libros')}}">
                                     Libro
                                 </a>
+                                <a class="dropdown-item" href="{{url('prestamos')}}">
+                                    Prestamo
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

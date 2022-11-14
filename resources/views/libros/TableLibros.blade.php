@@ -37,7 +37,9 @@
                                                   <th>Nombre editorial</th>
                                                   <th>Categoría</th>
                                                   <th>Autor</th>
+                                                  @can('editar-libro' || 'borrar-libro')
                                                   <th>Opciones</th>
+                                                  @endcan
                                               </tr>
                                               </thead>
                                               <tbody>

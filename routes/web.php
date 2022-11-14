@@ -13,7 +13,7 @@ use \App\Http\Controllers\EditorialesController;
 use App\Http\Controllers\registrocategoriaLcontroller;
 use App\Http\Controllers\reglibeditorialcontroller;
 use App\Http\Controllers\registroautorcontroller;
-
+use App\Http\Controllers\EstantesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +43,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("aggedit",reglibeditorialcontroller::class);
     Route::resource('aggcategoria',registrocategoriaLcontroller::class);
     Route::resource("autorRegistro",registroautorcontroller::class);
+    Route::resource("prestamos",EstantesController::class);
 });
 
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);

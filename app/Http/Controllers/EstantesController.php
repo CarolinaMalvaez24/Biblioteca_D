@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\estantes;
 use Illuminate\Http\Request;
-use App\Models\usuarios;
+use App\Models\user;
 use App\Models\libros;
 class EstantesController extends Controller
 {
@@ -25,9 +25,9 @@ class EstantesController extends Controller
             INNER JOIN libros on libros.id=estantes.id_libros;
         */
         
-        $estante=estantes::join("usuarios","usuarios.id","=","estantes.id_usuarios")
+        $estante=estantes::join("users","users.id","=","estantes.id_users")
             ->join("libros","libros.id","=","estantes.id_libros")
-            ->select("estantes.id","usuarios.nombreUsuario","libros.descripcion")
+            ->select("estantes.id","users.name","libros.descripcion")
             ->orderby("estantes.id")
             ->get();
         return view("estantes.TableEstantes",compact("estante"));
@@ -40,7 +40,7 @@ class EstantesController extends Controller
      */
     public function create()
     {
-        $usuarios=usuarios::all();
+        $usuarios=user::all();
         $libros=libros::all();
         return view("estantes.FormEstantes",compact("usuarios","libros"));
     }
@@ -54,13 +54,13 @@ class EstantesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "id_usuarios"=>"required", //buscar su validacion
+            "id_users"=>"required", //buscar su validacion
             "id_libros"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        Estantes::create(['id_usuarios'=>$request->id_usuarios,
+        Estantes::create(['id_users'=>$request->id_users,
                           'id_libros'=>$request->id_libros, ]);
-        return redirect()->route('estantes.index');
+        return redirect()->route('prestamos.index');
     }
 
     /**
@@ -82,7 +82,7 @@ class EstantesController extends Controller
      */
     public function edit(estantes $estante)
     {
-        $usuarios=usuarios::all();
+        $usuarios=user::all();
         $libros=libros::all();
         return view("estantes.updateEstantes",compact("estante","usuarios","libros"));
     }
@@ -101,7 +101,7 @@ class EstantesController extends Controller
             "id_libros"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $estante->update(['id_usuarios'=>$request->id_usuarios,
+        $estante->update(['id_users'=>$request->id_users,
                           'id_libros'=>$request->id_libros]);
         return redirect()->route('estantes.index');
     }

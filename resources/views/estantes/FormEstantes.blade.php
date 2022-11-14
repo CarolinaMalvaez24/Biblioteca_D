@@ -8,7 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="text-center"><b class="text-center">Agregar estante a Usuario</b></h1>
+          <h1 class="text-center"><b class="text-center">Generar Nuevo Prestamo</b></h1>
         </div>
       </div>
     </div>
@@ -17,16 +17,16 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12" style="">
-          <form id="c_form-h" method="POST" action="{{url('estantes')}}">
+          <form id="c_form-h" method="POST" action="{{url('prestamos')}}">
             @csrf
             <div class="form-group row"><label class="col-2">Usuario</label>
-              <div class="col-3"><select class="form-select @error('id_usuarios')is-invalid @enderror" aria-label="Default select example" id="id_usuarios" name="id_usuarios">
+              <div class="col-3"><select class="form-select @error('id_users')is-invalid @enderror" aria-label="Default select example" id="id_users" name="id_users">
                   <option selected="" value="Open this select menu">Elegir nombre de usuario</option>
                   @foreach($usuarios as $usuario)
-                    <option value="{{$usuario->id}}">{{$usuario->nombreUsuario}}</option>
+                    <option value="{{$usuario->id}}">{{$usuario->name}}</option>
                   @endforeach
                 </select>
-                @error('id_usuarios')
+                @error('id_users')
                   <div class="invalid-feedback">{{$message}}</div>
                  @enderror
               </div>
