@@ -22,7 +22,7 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        
+
         $categoria=categorias::all();
         return view("categorias.TableCategorias",compact("categoria"));
     }
@@ -34,7 +34,8 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        return view("categorias.FormCategorias");
+        $categoria=categorias::all();
+        return view("categorias.FormCategorias",compact("categoria"));
     }
 
     /**

@@ -32,7 +32,8 @@ class AutoresController extends Controller
      */
     public function create()
     {
-        return view ("autores.FormAutores");
+        $autores=autores::all();
+        return view ("autores.FormAutores", compact('autores'));
     }
 
     /**
@@ -43,6 +44,7 @@ class AutoresController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             "nombre_autor"=>"required|min:3|max:100",
             ],[],["name"=>"nombre","content"=>"contenido"]);
