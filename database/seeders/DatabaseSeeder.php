@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\autores;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +16,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
-        //roles y permisos
-        $this->call(RolaSeeder::class);
-        //usuarios base
-        $this->call(UserSeeder::class);
-        
+    {
+        $this->call(AutoresTableSeeder::class);
     }
 }

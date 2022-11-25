@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="{{ asset('static/css/app.css') }}"/>
     <link rel="stylesheet" href="{{ asset('node_modules/bootstrap-icons/font/bootstrap-icons.scc') }}"/>
     <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -130,3 +136,9 @@
 </div>
 </body>
 </html>
+<script>
+    import Scripts from "../../../vendor/twbs/bootstrap-icons/docs/layouts/partials/scripts.html";
+    export default {
+        components: {Scripts}
+    }
+</script>

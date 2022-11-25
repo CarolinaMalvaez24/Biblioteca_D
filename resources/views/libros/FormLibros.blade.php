@@ -3,24 +3,28 @@
 @section("libros")
     active
 @endsection
+@section('styles')
+
+@endsection
 @section("content")
-  <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center"><b>Agregar Libro</b></h1>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+        $(document).ready(function() {
+            // Select2 Multiple
+            $('.select2-multiple').select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+        });
+    </script>
     <div class="container col-sm-4">
         <div class="row">
             <div class="d-flex justify-content-center card">
                 <div class="card-body">
+                    <h1 class="text-center">Registrar Libro</h1>
                     <form id="c_form-h" method="post" action="{{url('libros')}}">
                         @csrf
                         <div class="d-lg-flex">
-                            <label for="title" class="col-2">Titulo</label>
+                            <label for="title" class="col-2">Libro</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control @error('descripcion')is-invalid @enderror" id="descripcion" name="descripcion" placeholder="Titulo del libro" value="{{old('descripcion')}}">
                                 @error('descripcion')
@@ -38,10 +42,9 @@
                             </div>
                         </div>
                             <div class="my-2 d-lg-flex">
-                                <label class="col-2">Editorial</label>
+                                <label class="col-sm-3">Editorial</label>
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
-
                                             <option selected="0"> Elegir editorial </option>
                                             @foreach ($editorial as $edit)
                                                 <option value="{{$edit->id}}"> {{$edit->nombre_editorial}} </option>
@@ -54,32 +57,30 @@
                                 <a class="btn bi-plus" href="{{route('aggedit.create')}}"></a>
                             </div>
                         <div class="my-2 d-lg-flex">
-                            <label class="col-2">Categoria</label>
-                            <div class="d-flex col-lg-9">
-                                <select checked="checked" class="form-control @error('id_categorias')is-invalid @enderror" id="id_categorias" name="id_categorias" required="required" style="  text: 0px 0px 4px black;">
-                                    <option selected="0"> Elegir categoria </option>
-                                    @foreach($categoria as $categori)
-                                        <option value="{{$categori->id}}">{{$categori->tipo_categoria}}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_categorias')
-                                <div class="invalid-feedback">{{$message}}</div>
-                                @enderror
+                            <label class="col-2 d-flex">Categoria</label>
+                            <div class="form-group col-9">
+                                <div class="form-group">
+                                    <select class="select2-multiple form-control" name="cate[]" multiple="multiple"
+                                            id="categoriamulti">
+                                        @foreach($categoria as $categori)
+                                            <option value="{{$categori->id}}">{{$categori->tipo_categoria}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <a class="btn bi-plus" href="{{route('aggcategoria.create')}}"></a>
                         </div>
-                        <div class="my-2 d-lg-flex">
-                            <label class="col-2">Autor</label>
-                            <div class="d-flex col-lg-9">
-                                <select checked="checked" class="form-control @error('id_autor')is-invalid @enderror" id="id_autor" name="id_autor" required="required" style="  text: 0px 0px 4px black;">
-                                    <option selected="0"> Elegir Autor </option>
-                                    @foreach($autores as $autor)
-                                        <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_autor')
-                                <div class="invalid-feedback">{{$message}}</div>
-                                @enderror
+                        <div class="my-2 d-flex">
+                            <label class="col-2 d-flex">Autor</label>
+                            <div class="form-group col-9">
+                                <div class="form-group">
+                                    <select class="select2-multiple form-control" name="opciones[]" multiple="multiple"
+                                            id="autormulti">
+                                        @foreach($autores as $autor)
+                                            <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             
                             <a class="btn bi-plus" href="{{route('autorRegistro.create')}}"></a>
@@ -93,4 +94,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+
 @endsection
