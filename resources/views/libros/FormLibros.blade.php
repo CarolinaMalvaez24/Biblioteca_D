@@ -16,7 +16,7 @@
             });
         });
     </script>
-    <div class="container col-sm-4">
+    <div class="container col-5">
         <div class="row">
             <div class="d-flex justify-content-center card">
                 <div class="card-body">
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                             <div class="my-2 d-lg-flex">
-                                <label class="col-sm-3">Editorial</label>
+                                <label class="col-sm-2">Editorial</label>
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
                                             <option selected="0"> Elegir editorial </option>
@@ -74,7 +74,7 @@
                             <label class="col-2 d-flex">Autor</label>
                             <div class="form-group col-9">
                                 <div class="form-group">
-                                    <select class="select2-multiple form-control" name="opciones[]" multiple="multiple"
+                                    <select class="select2-multiple form-control" name="auto[]" multiple="multiple"
                                             id="autormulti">
                                         @foreach($autores as $autor)
                                             <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
