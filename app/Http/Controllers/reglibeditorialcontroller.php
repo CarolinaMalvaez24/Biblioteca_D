@@ -27,8 +27,9 @@ class reglibeditorialcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        //dd($request);
         return view("editoriales.aggeditlib");
     }
 

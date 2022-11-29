@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class autores extends Model
 {
-    public $timestamps = false;
     use HasFactory;
     protected $fillable=[
         'nombre_autor'
