@@ -18,8 +18,7 @@ return new class extends Migration
             $table->string('descripcion',100)->nullable();
             $table->integer('anio')->nullable();
             $table->foreignId('id_editoriales')->constrained('editoriales');
-            $table->foreignId('id_categorias')->constrained('categorias');
-            $table->foreignId('id_autor')->constrained('autores');
+            $table->timestamps();
         });
     }
 

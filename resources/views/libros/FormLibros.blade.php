@@ -60,8 +60,7 @@
                             <label class="col-2 d-flex">Categoria</label>
                             <div class="form-group col-9">
                                 <div class="form-group">
-                                    <select class="select2-multiple form-control" name="cate[]" multiple="multiple"
-                                            id="categoriamulti">
+                                    <select class="select2-multiple form-control" name="id_categoria[]" multiple="multiple" id="id_categoria">
                                         @foreach($categoria as $categori)
                                             <option value="{{$categori->id}}">{{$categori->tipo_categoria}}</option>
                                         @endforeach
@@ -74,14 +73,19 @@
                             <label class="col-2 d-flex">Autor</label>
                             <div class="form-group col-9">
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <select class="select2-multiple form-control" name="auto[]" multiple="multiple"
                                             id="autormulti">
+=======
+                                    <select class="select2-multiple form-control" name="id_autor[]" multiple="multiple" id="id_autor">
+>>>>>>> 63548eef8b4eb68fae5223b5bd5efe997cc11488
                                         @foreach($autores as $autor)
                                             <option value="{{$autor->id}}">{{$autor->nombre_autor}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
+                            
                             <a class="btn bi-plus" href="{{route('autorRegistro.create')}}"></a>
                         </div>
                         <div class="text-center">

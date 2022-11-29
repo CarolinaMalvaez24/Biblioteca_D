@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\categorias;
-use App\Models\editoriales;
-use App\Models\autores;
+
+use App\Models\Asigna_categoria;
 use Illuminate\Http\Request;
 
-class reglibeditorialcontroller extends Controller
+class AsignaCategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class reglibeditorialcontroller extends Controller
      */
     public function index()
     {
-        $editorial=editoriales::all();
-        $categoria=categorias::all();
-        $autores=autores::all();
-        return view("libros.FormLibros",compact("editorial","categoria","autores"));
-
+        //
     }
 
     /**
@@ -27,10 +22,9 @@ class reglibeditorialcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        //dd($request);
-        return view("editoriales.aggeditlib");
+        //
     }
 
     /**
@@ -41,23 +35,16 @@ class reglibeditorialcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "nombre_editorial"=>"required|min:3|max:100",
-            ],[],["name"=>"nombre","content"=>"contenido"]);
-
-
-        Editoriales::create(['nombre_editorial'=>$request->nombre_editorial,]);
-        //dd($request);
-        return redirect()->route('libros.create');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Asigna_categoria  $asigna_categoria
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Asigna_categoria $asigna_categoria)
     {
         //
     }
@@ -65,22 +52,22 @@ class reglibeditorialcontroller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Asigna_categoria  $asigna_categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(editoriales $editoriale)
+    public function edit(Asigna_categoria $asigna_categoria)
     {
-        return view("libros.FormLibros",compact("editoriale"));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Asigna_categoria  $asigna_categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Asigna_categoria $asigna_categoria)
     {
         //
     }
@@ -88,10 +75,10 @@ class reglibeditorialcontroller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Asigna_categoria  $asigna_categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Asigna_categoria $asigna_categoria)
     {
         //
     }

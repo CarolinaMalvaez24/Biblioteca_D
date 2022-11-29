@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\editoriales;
 use App\Models\categorias;
 use App\Models\autores;
+use App\Models\asigna_autores;
+use App\Models\Asigna_categoria;
 
 class LibrosController extends Controller
 {
@@ -20,33 +22,7 @@ class LibrosController extends Controller
 
     public function index()
     {
-
-        /*
-            Consulta
-        SELECT libros.descripcion,libros.anio,editoriales.nombre_editorial,categorias.tipo_categoria from libros,editoriales,categorias WHERE editoriales.id=libros.id_editoriales and categorias.id=libros.id_categorias; 
-
-        SELECT 
-        libros.descripcion,
-        libros.anio,
-        editoriales.nombre_editorial,
-        categorias.tipo_categoria 
-        from libros 
-        INNER JOIN editoriales ON editoriales.id=libros.id_editoriales 
-        INNER JOIN categorias ON categorias.id=libros.id_categorias;
-
-        $libro=libros::join("editoriales","editoriales.id","=","libros.id_editoriales")
-        ->join("categorias","categorias.id","=","libros.id_categorias")
-        ->select("libros.descripcion","libros.anio","editoriales.nombre_editorial","categorias.tipo_categorias")
-        ->get();
-        */
-
-
-        //$libro=libros::all();
-        $libro=libros::join("editoriales","editoriales.id","=","libros.id_editoriales")
-        ->join("categorias","categorias.id","=","libros.id_categorias")
-        ->join("autores","autores.id","=","libros.id_autor")
-        ->select("libros.descripcion","libros.anio","editoriales.nombre_editorial","categorias.tipo_categoria","autores.nombre_autor","libros.id")
-        ->get();
+        $libro=libros::all();
         return view("libros.TableLibros",compact("libro"));
     }
 
@@ -72,22 +48,59 @@ class LibrosController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
+        $data=$request->validate([
+=======
+        //dd($request->all());
         $request->validate([
+>>>>>>> refs/remotes/origin/master
             "descripcion"=>"required",
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
-            "id_categorias"=>"required",
+            "id_categoria"=>"required",
             "id_autor"=>"required" //buscar laa validacion correcta
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-
-        Libros::create(['descripcion'=>$request->descripcion,
+        $newLibro=Libros::firstOrCreate(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
-                        'id_editoriales'=>$request->id_editoriales,
-                        'id_categorias'=>$request->id_categorias,
+                        'id_editoriales'=>$request->id_editoriales,]);
+
+        foreach ($request->id_autor as $autor) {
+            //dd($autor);
+            $asigna_autor=asigna_autores::firstOrCreate(['id_libro'=>$newLibro->id,
+                        'id_autor'=>$autor]);
+        }
+
+        foreach ($request->id_categoria as $categoria) {
+            $asigna_categoria=Asigna_categoria::firstOrCreate(['id_libro'=>$newLibro->id,
+                        'id_categoria'=>$categoria,]);
+        }
+
+
+        
+        //dd($newLibro);
+        /*foreach ($newLibro as $libro) {
+            $asigna_autor=asigna_autores::create(['id_libro'=>$libro->id,
                         'id_autor'=>$request->id_autor,]);
-        //dd($request);
+        }
+        foreach ($newLibro as $libro) {
+            $asigna_categoria=Asigna_categoria::create(['id_libro'=>$libro->id,
+                        'id_categoria'=>$request->id_categoria,]);
+        }*/
+
+        
+
+        
+
+        //Asigna_autores::create([
+        //    'id_libro'=>$request->id,
+        //    'id_autores'=>$request->id_autores,]);
+        
+
+
         return redirect()->route('libros.index');
+        $data['opciones'] = json_encode($request->opciones);
+        $post = autores::create($data);
     }
 
     /**
