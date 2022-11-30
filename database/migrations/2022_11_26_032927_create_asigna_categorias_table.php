@@ -15,8 +15,19 @@ return new class extends Migration
     {
         Schema::create('asigna_categorias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_libro')->constrained('libros');
-            $table->foreignId('id_categoria')->constrained('categorias');
+            $table->foreignId('id_libro')
+                ->nullable()
+                ->constrained('libros')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
+            $table->foreignId('id_categoria')
+                ->nullable()
+                ->constrained('categorias')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
+            
             $table->timestamps();
         });
     }

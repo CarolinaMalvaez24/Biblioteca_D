@@ -34,23 +34,15 @@
                                                   <th>#</th>
                                                   <th>Titulo</th>
                                                   <th>Año</th>
-                                                  <th>Nombre editorial</th>
-                                                  <th>Categoría</th>
-                                                  <th>Autor</th>
-                                                  @can('editar-libro' || 'borrar-libro')
                                                   <th>Opciones</th>
-                                                  @endcan
                                               </tr>
                                               </thead>
                                               <tbody>
                                               @foreach($libro as $datos)
                                                   <tr>
                                                       <th>{{$loop->index+1}}</th>
-                                                      <td>{{$datos->descripcion}}</td>
+                                                      <td>{{$datos->titulo}}</td>
                                                       <td>{{$datos->anio}}</td>
-                                                      <td>{{$datos->nombre_editorial}}</td>
-                                                      <td>{{$datos->tipo_categoria}}</td>
-                                                      <td>{{$datos->nombre_autor}}</td>
                                                       <td>
                                                           <div class="d-flex">
                                                               @can('editar-libro')
@@ -69,6 +61,9 @@
                                                                           <i class="bi bi-trash3"></i>
                                                                       </button>
                                                                   </form>
+                                                              @endcan
+                                                              @can('ver-libro')
+                                                                  <a href="{{route('libros.show',$datos->id)}}" class="btn btn-dark ">Ver</a>
                                                               @endcan
                                                           </div>
                                                       </td>

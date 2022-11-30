@@ -13,17 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libros', function (Blueprint $table) {
+        Schema::create('consultas', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo',100)->nullable();
-            $table->integer('anio')->nullable();
-            $table->text('descripcion')->nullable();
-            $table->foreignId('id_editoriales')
+            $table->foreignId('id_users')
                 ->nullable()
-                ->constrained('editoriales')
+                ->constrained('users')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-                
+            
+            $table->foreignId('id_libros')
+                ->nullable()
+                ->constrained('libros')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+            
+            $table->date('fechaConsulta')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libros');
+        Schema::dropIfExists('consultas');
     }
 };

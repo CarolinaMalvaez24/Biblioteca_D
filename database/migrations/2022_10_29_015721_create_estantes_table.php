@@ -15,8 +15,17 @@ return new class extends Migration
     {
         Schema::create('estantes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_users')->constrained('users');
-            $table->foreignId('id_libros')->constrained('libros');
+            $table->foreignId('id_users')
+                ->nullable()
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
+            $table->foreignId('id_libros')
+                ->nullable()
+                ->constrained('libros')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
             $table->timestamps();
         });
     }
