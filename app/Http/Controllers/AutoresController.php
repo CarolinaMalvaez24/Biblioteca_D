@@ -50,7 +50,7 @@ class AutoresController extends Controller
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
 
-        Autores::create(['nombre_autor'=>$request->nombre_autor,]);
+        Autores::firstOrCreate(['nombre_autor'=>$request->nombre_autor,]);
         //dd($request);
         return redirect()->route('autores.index');
     }

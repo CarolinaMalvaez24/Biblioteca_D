@@ -18,6 +18,7 @@ class LibrosController extends Controller
          $this->middleware('permission:crear-libro', ['only' => ['create','store']]);
          $this->middleware('permission:editar-libro', ['only' => ['edit','update']]);
          $this->middleware('permission:borrar-libro', ['only' => ['destroy']]);
+         $this->middleware('permission:ver-libro', ['only' => ['show']]);
     }
 
     public function index()
@@ -50,15 +51,15 @@ class LibrosController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            "descripcion"=>"required",
+            "titulo"=>"required",
             "anio"=>"required",
-            "id_editoriales"=>"required", //buscar laa validacion correcta
-            "id_categoria"=>"required",
-            "id_autor"=>"required" //buscar laa validacion correcta
+            "descripcion"=>"required",
+            "id_editoriales"=>"required", //buscar la validacion correcta
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $newLibro=Libros::firstOrCreate(['descripcion'=>$request->descripcion,
+        $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
                         'anio'=>$request->anio,
+                        'descripcion'=>$request->descripcion,
                         'id_editoriales'=>$request->id_editoriales,]);
 
         foreach ($request->id_autor as $autor) {
@@ -103,9 +104,10 @@ class LibrosController extends Controller
      * @param  \App\Models\libros  $libros
      * @return \Illuminate\Http\Response
      */
-    public function show(libros $libros)
+    public function show(libros $libro)
     {
-        //
+        //consulta de eloquent
+        return view('libros.show');
     }
 
     /**

@@ -24,10 +24,10 @@
                     <form id="c_form-h" method="post" action="{{url('libros')}}">
                         @csrf
                         <div class="d-lg-flex">
-                            <label for="title" class="col-2">Libro</label>
+                            <label for="title" class="col-2">Titulo Libro</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control @error('descripcion')is-invalid @enderror" id="descripcion" name="descripcion" placeholder="Titulo del libro" value="{{old('descripcion')}}">
-                                @error('descripcion')
+                                <input type="text" class="form-control @error('titulo')is-invalid @enderror" id="titulo" name="titulo" placeholder="Titulo del libro" value="{{old('titulo')}}">
+                                @error('titulo')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
@@ -37,6 +37,15 @@
                             <div class="col-10">
                                 <input type="text" class="form-control @error('anio')is-invalid @enderror" id="anio" name="anio" placeholder="Año del libro" value="{{old('anio')}}">
                                 @error('anio')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="d-lg-flex">
+                            <label for="title" class="col-2">Descripcion Libro</label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="form-control @error('descripcion')is-invalid @enderror" id="descripcion" name="descripcion" placeholder="Descripcion del libro" value="{{old('descripcion')}}"></textarea>
+                                @error('descripcion')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
@@ -85,7 +94,7 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
-                            border-top border-bottom border-light rounded-lg active text-decoration-none">Continuar<br></button>
+                            border-top border-bottom border-light rounded-lg active text-decoration-none">Guardar<br></button>
                         </div>
                     </form>
                 </div>

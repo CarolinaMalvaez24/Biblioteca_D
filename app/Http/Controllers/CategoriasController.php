@@ -51,7 +51,7 @@ class CategoriasController extends Controller
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
 
-        Categorias::create(['tipo_categoria'=>$request->tipo_categoria,]);
+        Categorias::firstOrCreate(['tipo_categoria'=>$request->tipo_categoria,]);
         //dd($request);
         return redirect()->route('categorias.index');
     }

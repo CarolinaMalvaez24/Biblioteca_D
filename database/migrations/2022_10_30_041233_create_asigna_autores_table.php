@@ -15,8 +15,20 @@ return new class extends Migration
     {
         Schema::create('asigna_autores', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_libro')->constrained('libros');
-            $table->foreignId('id_autor')->constrained('autores');
+
+            $table->foreignId('id_libro')
+                ->nullable()
+                ->constrained('libros')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
+            $table->foreignId('id_autor')
+                ->nullable()
+                ->constrained('autores')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+
+            
             $table->timestamps();
         });
     }

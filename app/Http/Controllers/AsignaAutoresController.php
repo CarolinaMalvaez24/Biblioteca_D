@@ -50,9 +50,7 @@ class AsignaAutoresController extends Controller
      */
     public function create()
     {
-        $libro=libros::all();
-        $autores=autores::all();
-        return view('asigna_autores.FormAsignaAutores',compact("libro","autores"));
+        
     }
 
     /**
@@ -63,10 +61,7 @@ class AsignaAutoresController extends Controller
      */
     public function store(Request $request)
     {
-        asigna_autores::create([
-            'id_libro'=>$request->id_libro,
-            'id_autores'=>$request->id_autores]);
-        return redirect()->route('asigna_autores.index');
+        
     }
 
     /**
@@ -88,9 +83,7 @@ class AsignaAutoresController extends Controller
      */
     public function edit(asigna_autores $asigna_autore)
     {
-        $libro=libros::all();
-        $autores=autores::all();
-        return view("asigna_autores.updateAsignaAutores",compact("asigna_autore","libro","autores"));
+        
     }
 
     /**
@@ -102,10 +95,7 @@ class AsignaAutoresController extends Controller
      */
     public function update(Request $request, asigna_autores $asigna_autore)
     {
-        $asigna_autore->update([
-            'id_libro'=>$request->id_libro,
-            'id_autores'=>$request->id_autores]);
-        return redirect()->route('asigna_autores.index');
+        
     }
 
     /**
@@ -116,7 +106,6 @@ class AsignaAutoresController extends Controller
      */
     public function destroy(asigna_autores $asigna_autore)
     {
-        $asigna_autore->delete();
-        return redirect()->route("asigna_autores.index");
+        
     }
 }

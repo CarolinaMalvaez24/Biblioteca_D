@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\asigna_autores;
 use App\Models\Asigna_categoria;
+use App\Models\images;
 
 class libros extends Model
 {
     use HasFactory;
     
     protected $fillable=[
-        'descripcion',
+        'titulo',
         'anio',
+        'descripcion',
         'id_editoriales',
     ];
 
@@ -23,5 +25,9 @@ class libros extends Model
 
     public function asigna_categoria(){
         return $this->belongsToMany(Asigna_categoria::class);
+    }
+
+    public function image(){
+        return $this->morphOne(images::class,'imageable');
     }
 }
