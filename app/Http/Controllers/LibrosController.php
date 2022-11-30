@@ -49,10 +49,12 @@ class LibrosController extends Controller
      */
     public function store(Request $request)
     {
+
         //dd($request->all());
         $request->validate([
             "titulo"=>"required",
             "anio"=>"required",
+
             "descripcion"=>"required",
             "id_editoriales"=>"required", //buscar la validacion correcta
             ],[],["name"=>"nombre","content"=>"contenido"]);
