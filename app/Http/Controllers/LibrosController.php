@@ -48,12 +48,9 @@ class LibrosController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-        $data=$request->validate([
-=======
+
         //dd($request->all());
         $request->validate([
->>>>>>> refs/remotes/origin/master
             "descripcion"=>"required",
             "anio"=>"required",
             "id_editoriales"=>"required", //buscar laa validacion correcta
