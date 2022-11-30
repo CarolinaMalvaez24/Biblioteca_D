@@ -23,7 +23,6 @@ return new class extends Migration
                 ->constrained('editoriales')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-                
             $table->timestamps();
         });
     }

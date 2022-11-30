@@ -52,7 +52,6 @@ class LibrosController extends Controller
         //dd($request->all());
         $request->validate([
             "titulo"=>"required",
-
             "anio"=>"required",
             "descripcion"=>"required",
             "id_editoriales"=>"required", //buscar la validacion correcta
@@ -74,31 +73,7 @@ class LibrosController extends Controller
                         'id_categoria'=>$categoria,]);
         }
 
-
-        
-        //dd($newLibro);
-        /*foreach ($newLibro as $libro) {
-            $asigna_autor=asigna_autores::create(['id_libro'=>$libro->id,
-                        'id_autor'=>$request->id_autor,]);
-        }
-        foreach ($newLibro as $libro) {
-            $asigna_categoria=Asigna_categoria::create(['id_libro'=>$libro->id,
-                        'id_categoria'=>$request->id_categoria,]);
-        }*/
-
-        
-
-        
-
-        //Asigna_autores::create([
-        //    'id_libro'=>$request->id,
-        //    'id_autores'=>$request->id_autores,]);
-        
-
-
         return redirect()->route('libros.index');
-        $data['opciones'] = json_encode($request->opciones);
-        $post = autores::create($data);
     }
 
     /**
