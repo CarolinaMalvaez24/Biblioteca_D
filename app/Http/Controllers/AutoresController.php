@@ -45,7 +45,7 @@ class AutoresController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        $autores=$request->validate([
             "nombre_autor"=>"required|min:3|max:100",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 

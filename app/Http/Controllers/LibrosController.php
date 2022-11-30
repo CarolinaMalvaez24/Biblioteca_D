@@ -52,6 +52,7 @@ class LibrosController extends Controller
         //dd($request->all());
         $request->validate([
             "titulo"=>"required",
+
             "anio"=>"required",
             "descripcion"=>"required",
             "id_editoriales"=>"required", //buscar la validacion correcta
@@ -96,6 +97,8 @@ class LibrosController extends Controller
 
 
         return redirect()->route('libros.index');
+        $data['opciones'] = json_encode($request->opciones);
+        $post = autores::create($data);
     }
 
     /**

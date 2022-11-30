@@ -17,24 +17,6 @@ class AsignaAutoresController extends Controller
      */
     public function index()
     {
-
-        /*
-            SELECT 
-            asigna_autores.id,
-            libros.descripcion,
-            autores.nombre_autor 
-            FROM asigna_autores 
-            INNER JOIN autores on autores.id=asigna_autores.id_autores 
-            INNER JOIN libros on libros.id=asigna_autores.id_libro; 
-
-            $As_autores=asiga_autores::join("autores","autores.id","=","asigna_autores.id_autores")
-        ->join("libros","libros.id","=","asigna_autores.id_libro")
-        ->select("asigna_autores.id","libros.descripcion","autores.nombre_autor")
-        ->get();
-
-            SELECT asigna_autores.id,libros.descripcion,autores.nombre_autor FROM asigna_autores INNER JOIN autores on autores.id=asigna_autores.id_autores INNER JOIN libros on libros.id=asigna_autores.id_libro ORDER BY asigna_autores.id ASC;  
-
-        */
         $As_autores=asigna_autores::join("autores","autores.id","=","asigna_autores.id_autores")
         ->join("libros","libros.id","=","asigna_autores.id_libro")
         ->select("asigna_autores.id","libros.descripcion","autores.nombre_autor")
