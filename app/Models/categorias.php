@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\libros;
 
 class categorias extends Model
 {
@@ -11,4 +12,9 @@ class categorias extends Model
     protected $fillable=[
         'tipo_categoria'
     ];
+
+    public  function libros()
+    {
+        return $this->hasMany(libros::class());
+    }
 }

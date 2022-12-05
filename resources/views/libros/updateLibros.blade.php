@@ -51,26 +51,25 @@
                         <div class="d-lg-flex">
                             <label for="title" class="col-2">Descripcion Libro</label>
                             <div class="col-md-10">
-                                <textarea type="text" class="form-control @error('descripcion')is-invalid @enderror" id="descripcion" name="descripcion" placeholder="Descripcion del libro" value="{{$libro->descripcion}}"></textarea>
+                                <textarea type="text" class="form-control @error('descripcion')is-invalid @enderror" id="descripcion" name="descripcion" placeholder="Descripcion del libro" value="{{old('descripcion')}}"></textarea>
                                 @error('descripcion')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                         </div>
                             <div class="my-2 d-lg-flex">
-                                <label class="col-sm-3">Editorial</label>
+                                <label class="col-sm-2">Editorial</label>
                                     <div class="d-flex col-lg-9">
                                         <select checked="checked" class="form-control @error('id_editoriales')is-invalid @enderror" id="id_editoriales" name="id_editoriales" required="required" style=" text: 0px 0px 4px black;">
-                                          <option selected=""> Elegir editorial </option>
-                                          @foreach($editorial as $editor) 
-                                            <option value="{{$editor->id}}" {{$editor->id== $libro->id_editoriales ? 'selected' : ''}}> {{$editor->nombre_editorial}} </option>
-                                          @endforeach
+                                            <option selected="0"> Elegir editorial </option>
+                                            @foreach ($editorial as $edit)
+                                                <option value="{{$edit->id}}" {{$edit->id== $libro->id_editoriales ? 'selected' : ''}}> {{$edit->nombre_editorial}} </option>
+                                            @endforeach
                                         </select>
                                         @error('id_editoriales')
                                         <div class="invalid-feedback">{{$message}}</div>
                                         @enderror
                                 </div>
-                                <a class="btn bi-plus" href="{{route('aggedit.create')}}"></a>
                             </div>
                         <div class="my-2 d-lg-flex">
                             <label class="col-2 d-flex">Categoria</label>
@@ -83,7 +82,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <a class="btn bi-plus" href="{{route('aggcategoria.create')}}"></a>
                         </div>
                         <div class="my-2 d-flex">
                             <label class="col-2 d-flex">Autor</label>
@@ -96,12 +94,10 @@
                                     </select>
                                 </div>
                             </div>
-                            
-                            <a class="btn bi-plus" href="{{route('autorRegistro.create')}}"></a>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark text-capitalize border border-left border-right
-                            border-top border-bottom border-light rounded-lg active text-decoration-none">Actualizar<br></button>
+                            border-top border-bottom border-light rounded-lg active text-decoration-none">Guardar<br></button>
                         </div>
                   </form>
               </div>

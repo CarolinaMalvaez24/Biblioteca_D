@@ -87,7 +87,11 @@ class LibrosController extends Controller
     public function show(libros $libro)
     {
         //consulta de eloquent
-        return view('libros.show');
+        $libros = libros::where('id', $libro->id)
+        ->where('anio', $libro->anio)
+        ->where('descripcion', $libro->descripcion)
+        ->get();
+        return view('libros.show', compact('libro','libros'));
     }
 
     /**
@@ -127,6 +131,12 @@ class LibrosController extends Controller
                         'id_autor'=>$request->id_autor]);
         
         return redirect()->route('libros.index');
+    }
+
+    public function asigna_categoria(categorias $categoria){
+        
+
+
     }
 
     /**

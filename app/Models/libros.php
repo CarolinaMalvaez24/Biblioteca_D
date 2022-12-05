@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\asigna_autores;
 use App\Models\Asigna_categoria;
 use App\Models\images;
+use App\Models\categorias;
 
 class libros extends Model
 {
@@ -25,6 +26,10 @@ class libros extends Model
 
     public function asigna_categoria(){
         return $this->belongsToMany(Asigna_categoria::class);
+    }
+
+    public function categorias(){
+        return $this->belongsToMany(categorias::class);
     }
 
     public function image(){
