@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\autores;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AutoresController extends Controller
 {
