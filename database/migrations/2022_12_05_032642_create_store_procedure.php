@@ -16,15 +16,18 @@ return new class extends Migration
         $store_procedure="DROP PROCEDURE IF EXISTS `Cargar_Autor`;
             CREATE PROCEDURE `Cargar_Autor`(pnombre_autor varchar(100))
                 BEGIN
-                    INSERT INTO autores(nombre_autor,created_at,updated_at) VALUES (pnombre_autor,now(),now());
+                    INSERT INTO autores(nombre_autor,created_at,updated_at) 
+                    VALUES (pnombre_autor,now(),now());
                 END;";
 
                 \DB::unprepared($store_procedure);
+                
 
         $store_procedure1="DROP PROCEDURE IF EXISTS `Cargar_Categoria`;
             CREATE PROCEDURE `Cargar_Categoria`(ptipo_categoria varchar(50))
                 BEGIN
-                    INSERT INTO categorias(tipo_categoria,created_at,updated_at) VALUES (ptipo_categoria ,now(),now());
+                    INSERT INTO categorias(tipo_categoria,created_at,updated_at) 
+                    VALUES (ptipo_categoria ,now(),now());
                 END;";
 
                 \DB::unprepared($store_procedure1);
@@ -32,7 +35,8 @@ return new class extends Migration
         $store_procedure2="DROP PROCEDURE IF EXISTS `Cargar_Editorial`;
             CREATE PROCEDURE `Cargar_Editorial`(pnombre_editorial varchar(50))
                 BEGIN
-                    INSERT INTO editoriales(nombre_editorial,created_at,updated_at) VALUES (pnombre_editorial ,now(),now());
+                    INSERT INTO editoriales(nombre_editorial,created_at,updated_at) 
+                    VALUES (pnombre_editorial ,now(),now());
                 END;";
 
                 \DB::unprepared($store_procedure2);
