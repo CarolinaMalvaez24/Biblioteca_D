@@ -46,6 +46,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource("prestamos",EstantesController::class);
 });
 
+Route::get('categorias/{categoria}',[LibrosController::class,'asigna_categoria']);
+
 /*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
 Route::resource("categorias",\App\Http\Controllers\CategoriasController::class);
 Route::resource("consultas" ,\App\Http\Controllers\ConsultasController::class);

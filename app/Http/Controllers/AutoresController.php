@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\autores;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AutoresController extends Controller
 {
@@ -49,8 +50,10 @@ class AutoresController extends Controller
             "nombre_autor"=>"required|min:3|max:100",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
+        $autor=DB::select("CALL Cargar_Autor('.$request->nombre_autor.')");
 
-        Autores::firstOrCreate(['nombre_autor'=>$request->nombre_autor,]);
+
+        //Autores::firstOrCreate(['nombre_autor'=>$request->nombre_autor,]);
         //dd($request);
         return redirect()->route('autores.index');
     }
