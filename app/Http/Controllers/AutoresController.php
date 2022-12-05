@@ -49,8 +49,10 @@ class AutoresController extends Controller
             "nombre_autor"=>"required|min:3|max:100",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
+        $autor=DB::select("CALL Cargar_Autor('.$request->nombre_autor.')");
 
-        Autores::firstOrCreate(['nombre_autor'=>$request->nombre_autor,]);
+
+        //Autores::firstOrCreate(['nombre_autor'=>$request->nombre_autor,]);
         //dd($request);
         return redirect()->route('autores.index');
     }
