@@ -29,7 +29,7 @@
                                                         <table class="table table-bordered ">
                                                             <thead class="thead-dark">
                                                             <tr>
-                                                                <th>ID</th>
+                                                                <th>Cliente</th>
                                                                 <th>Nombre</th>
                                                                 <th>Correo</th>
                                                                 <th>Rol</th>
@@ -39,7 +39,7 @@
                                                             <tbody>
                                                             @foreach($usuarios as $datos)
                                                                 <tr>
-                                                                    <th>{{$loop->index+1}}</th>
+                                                                    <th>{{$datos->Numero_cliente}}</th>
                                                                     <td>{{$datos->name}}</td>
                                                                     <td>{{$datos->email}}</td>
                                                                     <td>@if(!empty($datos->getRoleNames()))
