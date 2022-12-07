@@ -27,12 +27,11 @@ class libros extends Model
     public function autores(){
         return $this->belongsToMany(autores::class);
     }
-
-    public function editoriales(){
-        return $this->hasOne(editoriales::class);
-    }
-
     public function image(){
         return $this->morphOne(images::class,'imageable');
+    }
+
+    public function editoriales(){
+        return $this->belongsTo(editoriales::class);
     }
 }

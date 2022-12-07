@@ -13,6 +13,6 @@ class editoriales extends Model
         'nombre_editorial'
     ];
     public function libros(){
-        return $this->hasOne(libros::class);
+        return $this->hasMany(libros::class);
     }
 }

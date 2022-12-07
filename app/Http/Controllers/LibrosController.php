@@ -91,6 +91,7 @@ class LibrosController extends Controller
         $libros = libros::where('id', $libro->id)
         ->where('anio', $libro->anio)
         ->where('descripcion', $libro->descripcion)
+        //&->where('editoriales_id',$libro->editoriales_id)
         ->get();
 
         return view('libros.show', compact('libro','libros'));
