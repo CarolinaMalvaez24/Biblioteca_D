@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\asigna_autores;
-use App\Models\Asigna_categoria;
 use App\Models\images;
 use App\Models\categorias;
+use App\Models\autores;
+use App\Models\editoriales;
 
 class libros extends Model
 {
@@ -17,19 +17,19 @@ class libros extends Model
         'titulo',
         'anio',
         'descripcion',
-        'id_editoriales',
+        'editoriales_id',
     ];
-
-    public function asigna_autor(){
-        return $this->belongsToMany(asigna_autores::class);
-    }
-
-    public function asigna_categoria(){
-        return $this->belongsToMany(Asigna_categoria::class);
-    }
 
     public function categorias(){
         return $this->belongsToMany(categorias::class);
+    }
+
+    public function autores(){
+        return $this->belongsToMany(autores::class);
+    }
+
+    public function editoriales(){
+        return $this->hasOne(editoriales::class);
     }
 
     public function image(){
