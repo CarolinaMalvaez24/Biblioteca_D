@@ -51,7 +51,7 @@ class CategoriasController extends Controller
             "tipo_categoria"=>"required|min:3|max:100",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $categoria=DB::select("CALL Cargar_Categoria('.$request->tipo_categoria.')");
+        $categoria=DB::select("CALL Cargar_Categoria('$request->tipo_categoria')");
         //Categorias::firstOrCreate(['tipo_categoria'=>$request->tipo_categoria,]);
         //dd($request);
         return redirect()->route('categorias.index');

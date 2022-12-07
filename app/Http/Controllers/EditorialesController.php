@@ -49,7 +49,7 @@ class EditorialesController extends Controller
             "nombre_editorial"=>"required|min:3|max:100|unique:editoriales",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $editorial=DB::select("CALL Cargar_Editorial('.$request->nombre_editorial.')");
+        $editorial=DB::select("CALL Cargar_Editorial('$request->nombre_editorial')");
         //Editoriales::firstOrCreate(['nombre_editorial'=>$request->nombre_editorial,]);
         //dd($request);
         return redirect()->route('editoriales.index');

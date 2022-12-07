@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\editoriales;
 use App\Models\categorias;
 use App\Models\autores;
-use App\Models\asigna_autores;
-use App\Models\Asigna_categoria;
+use App\Models\categorias_libros;
+use App\Models\autores_libros;
 
 class LibrosController extends Controller
 {
@@ -63,19 +63,19 @@ class LibrosController extends Controller
         $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
                         'anio'=>$request->anio,
                         'descripcion'=>$request->descripcion,
-                        'id_editoriales'=>$request->id_editoriales,]);
+                        'editoriales_id'=>$request->id_editoriales,]);
+
 
         foreach ($request->id_autor as $autor) {
             //dd($autor);
-            $asigna_autor=asigna_autores::firstOrCreate(['id_libro'=>$newLibro->id,
-                        'id_autor'=>$autor]);
+            $asigna_autor=autores_libros::firstOrCreate(['libros_id'=>$newLibro->id,
+                        'autores_id'=>$autor]);
         }
 
         foreach ($request->id_categoria as $categoria) {
-            $asigna_categoria=Asigna_categoria::firstOrCreate(['id_libro'=>$newLibro->id,
-                        'id_categoria'=>$categoria,]);
+            $categorias=categorias_libros::firstOrCreate(['libros_id'=>$newLibro->id,
+                        'categorias_id'=>$categoria,]);
         }
-
         return redirect()->route('libros.index');
     }
 
@@ -91,7 +91,9 @@ class LibrosController extends Controller
         $libros = libros::where('id', $libro->id)
         ->where('anio', $libro->anio)
         ->where('descripcion', $libro->descripcion)
+        //&->where('editoriales_id',$libro->editoriales_id)
         ->get();
+
         return view('libros.show', compact('libro','libros'));
     }
 
