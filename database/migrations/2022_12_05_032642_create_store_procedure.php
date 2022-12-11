@@ -40,6 +40,17 @@ return new class extends Migration
                 END;";
 
                 \DB::unprepared($store_procedure2);
+
+        $store_procedure_libros="DROP PROCEDURE IF EXISTS `RegistraLibro`;
+            CREATE PROCEDURE `RegistraLibro`(ptitulo varchar(100),panio int,pdescripcion text,peditorial varchar(50))
+                 BEGIN
+                DECLARE editorial BIGINT;
+                    SET editorial=(SELECT editoriales.id from editoriales WHERE editoriales.nombre_editorial=peditorial);
+                    INSERT INTO libros(titulo,anio,descripcion,editoriales_id,created_at, updated_at) values(ptitulo,panio,pdescripcion,editorial,now(),now());
+                END;";
+
+
+                \DB::unprepared($store_procedure_libros);        
     }
 
     /**
