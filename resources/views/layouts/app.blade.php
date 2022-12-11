@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ asset('node_modules/bootstrap-icons/font/bootstrap-icons.scc') }}"/>
     <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/app.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -24,6 +26,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css'])
     <script>
         $( document ).ready(function() {
             $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});

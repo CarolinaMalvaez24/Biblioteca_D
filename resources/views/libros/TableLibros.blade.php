@@ -50,7 +50,8 @@
                                                                     border-top border-bottom border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.edit',$datos->id)}}"
                                                                      data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar datos">
                                                                       <i class="bi bi-pencil"></i>
-                                                                  </a>@endcan
+                                                                  </a>
+                                                                @endcan
                                                               @can('borrar-libro')
                                                                   <form action="{{route('libros.destroy',$datos->id)}}" method="post">
                                                                       @csrf
@@ -63,7 +64,11 @@
                                                                   </form>
                                                               @endcan
                                                               @can('ver-libro')
-                                                                  <a href="{{route('libros.show',$datos->id)}}" class="btn btn-dark ">Ver</a>
+                                                              <a class="btn btn-dark text-capitalize border border-left border-right
+                                                                    border-top border-bottom border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.show',$datos->id)}}"
+                                                                     data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar datos">
+                                                                      <i class="bi bi-eye"></i>
+                                                                  </a>
                                                               @endcan
                                                           </div>
                                                       </td>
