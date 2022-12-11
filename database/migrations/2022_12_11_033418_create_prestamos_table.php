@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('prestamos_id');
+             $table->foreign('prestamos_id')->references('id')->on('prestamos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

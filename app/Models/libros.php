@@ -8,6 +8,8 @@ use App\Models\images;
 use App\Models\categorias;
 use App\Models\autores;
 use App\Models\editoriales;
+use App\Models\Prestamos;
+use App\Models\Devoluciones;
 
 class libros extends Model
 {
@@ -33,5 +35,13 @@ class libros extends Model
 
     public function editoriales(){
         return $this->belongsTo(editoriales::class);
+    }
+
+    public function prestamos(){
+        return $this->belongsToMany(Prestamos::class);
+    }
+
+    public function devoluciones(){
+        return $this->belongsToMany(Devoluciones::class);
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->unsignedBigInteger('editoriales_id');
             $table->foreign('editoriales_id')->references('id')->on('editoriales')->onDelete('cascade')->onUpdate('cascade');
+            //existancias->10
             $table->timestamps();
         });
     }
