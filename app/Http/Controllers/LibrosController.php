@@ -10,6 +10,8 @@ use App\Models\categorias;
 use App\Models\autores;
 use App\Models\categorias_libros;
 use App\Models\autores_libros;
+use App\Models\ejemplares;
+use App\Models\user;
 
 class LibrosController extends Controller
 {
@@ -52,13 +54,14 @@ class LibrosController extends Controller
     {
 
         //dd($request->all());
-        $request->validate([
+        //dd($request->numero);
+        /*$request->validate([
             "titulo"=>"required",
             "anio"=>"required",
 
             "descripcion"=>"required",
             "id_editoriales"=>"required", //buscar la validacion correcta
-            ],[],["name"=>"nombre","content"=>"contenido"]);
+            ],[],["name"=>"nombre","content"=>"contenido"]);*/
 
         $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
                         'anio'=>$request->anio,
@@ -76,6 +79,10 @@ class LibrosController extends Controller
             $categorias=categorias_libros::firstOrCreate(['libros_id'=>$newLibro->id,
                         'categorias_id'=>$categoria,]);
         }
+
+       $ejemplar=ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$request->num_copia,]);
+
+
         return redirect()->route('libros.index');
     }
 
@@ -91,10 +98,11 @@ class LibrosController extends Controller
         $libros = libros::where('id', $libro->id)
         ->where('anio', $libro->anio)
         ->where('descripcion', $libro->descripcion)
-        //&->where('editoriales_id',$libro->editoriales_id)
         ->get();
+         $usuarios=user::all();
+       
 
-        return view('libros.show', compact('libro','libros'));
+        return view('libros.show', compact('libro','libros','usuarios'));
     }
 
     /**

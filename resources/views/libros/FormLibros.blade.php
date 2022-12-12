@@ -117,8 +117,8 @@
                         <div class="card-body">
                             <label class="mb-2 col-12 text-center">Numero de copias</label>
                             <div class="d-flex">
-                                <input type="number" class="form-control @error('copias')is-invalid @enderror" id="copias" name="copias" placeholder="numero de copias" value="{{old('copias')}}">
-                                @error('copias')
+                                <input type="number" class="form-control @error('num_copia')is-invalid @enderror" id="num_copia" name="num_copia" placeholder="numero de copias" value="{{old('num_copia')}}">
+                                @error('num_copia')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>

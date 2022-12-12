@@ -9,7 +9,7 @@ class estantes extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'id_usuarios',
-        'id_libros'
+        'libros_id',
+        'users_id'
     ];
 }

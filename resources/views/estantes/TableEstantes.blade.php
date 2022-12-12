@@ -37,7 +37,7 @@
                                     <tr>
                                         <th>{{$loop->index+1}}</th>
                                         <td>{{$datos->name}}</td>
-                                        <td>{{$datos->descripcion}}</td>
+                                        <td>{{$datos->titulo}}</td>
                                         <td>
                                             <div class="d-flex">
                                             @can('editar-prestamo')

@@ -20,22 +20,22 @@
                   <form id="c_form-h" method="POST" action="{{url('prestamos')}}">
                       @csrf
                       <div class="form-group row"><label class="col-2">Usuario</label>
-                          <div class="col-10"><select class="form-select @error('id_users')is-invalid @enderror" aria-label="Default select example" id="id_users" name="id_users">
+                          <div class="col-10"><select class="form-select @error('users_id')is-invalid @enderror" aria-label="Default select example" id="users_id" name="users_id">
                                   <option selected="" value="Open this select menu">Elegir nombre de usuario</option>
                                   @foreach($usuarios as $usuario)
                                       <option value="{{$usuario->id}}">{{$usuario->name}}</option>
                                   @endforeach
                               </select>
-                              @error('id_users')
+                              @error('users_id')
                               <div class="invalid-feedback">{{$message}}</div>
                               @enderror
                           </div>
                       </div>
                       <div class="my-2 form-group row"><label class="col-2">Libro</label>
-                          <div class="col-10"><select class="form-select @error('id_libros')is-invalid @enderror" aria-label="Default select example" id="id_libros" name="id_libros">
+                          <div class="col-10"><select class="form-select @error('libros_id')is-invalid @enderror" aria-label="Default select example" id="libros_id" name="libros_id">
                                   <option selected="" value="Open this select menu">Selecciona libro</option>
                                   @foreach($libros as $libro)
-                                      <option value="{{$libro->id}}">{{$libro->descripcion}}</option>
+                                      <option value="{{$libro->id}}">{{$libro->titulo}}</option>
                                   @endforeach
                               </select>
                               @error('id_libros')

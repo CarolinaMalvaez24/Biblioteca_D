@@ -10,6 +10,7 @@ use App\Models\autores;
 use App\Models\editoriales;
 use App\Models\Prestamos;
 use App\Models\Devoluciones;
+use App\Models\ejemplares;
 
 class libros extends Model
 {
@@ -43,5 +44,8 @@ class libros extends Model
 
     public function devoluciones(){
         return $this->belongsToMany(Devoluciones::class);
+    }
+    public function ejemplares(){
+        return $this->belongsTo(ejemplares::class);
     }
 }

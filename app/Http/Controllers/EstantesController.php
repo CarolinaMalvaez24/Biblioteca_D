@@ -25,9 +25,9 @@ class EstantesController extends Controller
             INNER JOIN libros on libros.id=estantes.id_libros;
         */
         
-        $estante=estantes::join("users","users.id","=","estantes.id_users")
-            ->join("libros","libros.id","=","estantes.id_libros")
-            ->select("estantes.id","users.name","libros.descripcion")
+        $estante=estantes::join("users","users.id","=","estantes.users_id")
+            ->join("libros","libros.id","=","estantes.libros_id")
+            ->select("estantes.id","users.name","libros.titulo")
             ->orderby("estantes.id")
             ->get();
         return view("estantes.TableEstantes",compact("estante"));
@@ -53,13 +53,14 @@ class EstantesController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $request->validate([
-            "id_users"=>"required", //buscar su validacion
-            "id_libros"=>"required",   //buscar su validacion
+            "libros_id"=>"required", //buscar su validacion
+            "users_id"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        Estantes::create(['id_users'=>$request->id_users,
-                          'id_libros'=>$request->id_libros, ]);
+        Estantes::firstOrCreate(['libros_id'=>$request->libros_id,
+                          'users_id'=>$request->users_id, ]);
         return redirect()->route('prestamos.index');
     }
 
@@ -97,12 +98,12 @@ class EstantesController extends Controller
     public function update(Request $request, estantes $estante)
     {
         $request->validate([
-            "id_usuarios"=>"required", //buscar su validacion
-            "id_libros"=>"required",   //buscar su validacion
+            "usuarios_id"=>"required", //buscar su validacion
+            "libros_id"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $estante->update(['id_users'=>$request->id_users,
-                          'id_libros'=>$request->id_libros]);
+        $estante->update(['users_id'=>$request->id_users,
+                          'libros_id'=>$request->id_libros]);
         return redirect()->route('estantes.index');
     }
 
