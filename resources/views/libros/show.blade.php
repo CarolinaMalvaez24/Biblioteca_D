@@ -10,7 +10,7 @@
                 <div class="container">
                   <div class="row">
                     @foreach($libros as $libro)
-                    <div class="col-md-4 mr-auto order-2 order-md-1"> <img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-mobile.svg"> </div>
+                    <div class="col-md-4 mr-auto order-2 order-md-1"> <img class="img-fluid d-block" src="{{url("img/Libros.jpg")}}"> </div>
                     <div class="px-md-5 p-3 d-flex flex-column align-items-start justify-content-center col-md-7 order-1 order-md-2" style="">
                         <div class="row">
                             <div class="col-md-12" style="">
