@@ -15,17 +15,13 @@ return new class extends Migration
     {
         Schema::create('estantes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_users')
-                ->nullable()
-                ->constrained('users')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('libros_id');
+            $table->unsignedBigInteger('users_id');
 
-            $table->foreignId('id_libros')
-                ->nullable()
-                ->constrained('libros')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+            $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

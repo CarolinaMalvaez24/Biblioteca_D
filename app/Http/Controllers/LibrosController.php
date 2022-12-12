@@ -53,7 +53,7 @@ class LibrosController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
+        //dd($request->all());
         //dd($request->numero);
         /*$request->validate([
             "titulo"=>"required",
