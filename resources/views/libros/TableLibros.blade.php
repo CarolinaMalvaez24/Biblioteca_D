@@ -64,11 +64,19 @@
                                                                   </form>
                                                               @endcan
                                                               @can('ver-libro')
+<<<<<<< HEAD
+                                                                <a class="btn btn-dark text-capitalize border border-left border-right
+                                                                        border-top border-bottom border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.show',$datos->id)}}"
+                                                                        data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar datos">
+                                                                        <i class="bi bi-eye"></i>
+                                                                </a>
+=======
                                                               <a class="btn btn-dark text-capitalize border border-left border-right
                                                                     border-top border-bottom border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.show',$datos->id)}}"
                                                                      data-toggle="tooltip" rel="tooltip" data-placement="top" title="Ver datos">
                                                                       <i class="bi bi-eye"></i>
                                                                   </a>
+>>>>>>> b841ba7a94dc824fc0c8f917124919d953526b40
                                                               @endcan
                                                           </div>
                                                       </td>

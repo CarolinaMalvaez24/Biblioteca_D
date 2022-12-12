@@ -26,6 +26,7 @@
                 <div class="row">
                     <div class="d-flex justify-content-center card">
                         <div class="card-body">
+                            <h1>Espero que nos pase XD</h1>
                         </div>
                     </div>
                 </div>
@@ -122,11 +123,12 @@
                                 @enderror
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="footer">
-            <p>Pie de pagina</p>
+            
             </div>
         </form>
     </div>
