@@ -35,7 +35,7 @@
                           <div class="col-10"><select class="form-select @error('id_libros')is-invalid @enderror" aria-label="Default select example" id="id_libros" name="id_libros">
                                   <option selected="" value="Open this select menu">Selecciona libro</option>
                                   @foreach($libros as $libro)
-                                      <option value="{{$libro->id}}">{{$libro->descripcion}}</option>
+                                      <option value="{{$libro->id}}">{{$libro->titulo}}</option>
                                   @endforeach
                               </select>
                               @error('id_libros')

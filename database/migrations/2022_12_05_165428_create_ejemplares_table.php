@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('ejemplares', function (Blueprint $table) {
             $table->id();
-            $table->integer('No_Copia');
-            $table->foreignId('id_libro')->nullable()->constrained('libros')->cascadeOnUpdate()->nullOnDelete();
+            $table->unsignedBigInteger('libros_id');
+            $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('num_copia');
             $table->timestamps();
         });
     }

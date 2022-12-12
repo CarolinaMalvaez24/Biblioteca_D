@@ -66,7 +66,7 @@
                                                               @can('ver-libro')
                                                               <a class="btn btn-dark text-capitalize border border-left border-right
                                                                     border-top border-bottom border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.show',$datos->id)}}"
-                                                                     data-toggle="tooltip" rel="tooltip" data-placement="top" title="Editar datos">
+                                                                     data-toggle="tooltip" rel="tooltip" data-placement="top" title="Ver datos">
                                                                       <i class="bi bi-eye"></i>
                                                                   </a>
                                                               @endcan
