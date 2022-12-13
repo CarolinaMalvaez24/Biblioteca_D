@@ -104,7 +104,7 @@ class EstantesController extends Controller
 
         $estante->update(['users_id'=>$request->id_users,
                           'libros_id'=>$request->id_libros]);
-        return redirect()->route('estantes.index');
+        return redirect()->route('prestamos.index');
     }
 
     /**
@@ -116,6 +116,6 @@ class EstantesController extends Controller
     public function destroy(estantes $estante)
     {
         $estante->delete();
-        return redirect()->route("estantes.index");
+        return redirect()->route("prestamos.index");
     }
 }
