@@ -79,8 +79,11 @@ class LibrosController extends Controller
             $categorias=categorias_libros::firstOrCreate(['libros_id'=>$newLibro->id,
                         'categorias_id'=>$categoria,]);
         }
+        for($i=1;$i<=$request->num_copia;$i++){
+            ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$i,]);
+        }
 
-       $ejemplar=ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$request->num_copia,]);
+      // $ejemplar=ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$request->num_copia,]);
 
 
         return redirect()->route('libros.index');
@@ -98,11 +101,11 @@ class LibrosController extends Controller
         $libros = libros::where('id', $libro->id)
         ->where('anio', $libro->anio)
         ->where('descripcion', $libro->descripcion)
-        ->get();
-         $usuarios=user::all();
+        ->first();
+        // $usuarios=user::all();
        
 
-        return view('libros.show', compact('libro','libros','usuarios'));
+        return view('libros.show', compact('libro','libros'));
     }
 
     /**

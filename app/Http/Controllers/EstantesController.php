@@ -53,12 +53,12 @@ class EstantesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+       
         $request->validate([
             "libros_id"=>"required", //buscar su validacion
             "users_id"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
-
+          //  dd($request->all());
         Estantes::firstOrCreate(['libros_id'=>$request->libros_id,
                           'users_id'=>$request->users_id, ]);
         return redirect()->route('prestamos.index');
@@ -115,11 +115,7 @@ class EstantesController extends Controller
      */
     public function destroy(estantes $prestamo)
     {
-<<<<<<< HEAD
-        $estante->delete();
-=======
         $prestamo->delete();
->>>>>>> fa516f1663f33ca6ef562fda0de7a5731735fda4
         return redirect()->route("prestamos.index");
     }
 }
