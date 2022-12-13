@@ -81,11 +81,11 @@ class EstantesController extends Controller
      * @param  \App\Models\estantes  $estantes
      * @return \Illuminate\Http\Response
      */
-    public function edit(estantes $estante)
+    public function edit(estantes $prestamo)
     {
         $usuarios=user::all();
         $libros=libros::all();
-        return view("estantes.updateEstantes",compact("estante","usuarios","libros"));
+        return view("estantes.updateEstantes",compact("prestamo","usuarios","libros"));
     }
 
     /**
@@ -95,14 +95,14 @@ class EstantesController extends Controller
      * @param  \App\Models\estantes  $estantes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, estantes $estante)
+    public function update(Request $request, estantes $prestamo)
     {
         $request->validate([
             "usuarios_id"=>"required", //buscar su validacion
             "libros_id"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $estante->update(['users_id'=>$request->id_users,
+        $prestamo->update(['users_id'=>$request->id_usuarios,
                           'libros_id'=>$request->id_libros]);
         return redirect()->route('prestamos.index');
     }
@@ -113,9 +113,13 @@ class EstantesController extends Controller
      * @param  \App\Models\estantes  $estantes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(estantes $estante)
+    public function destroy(estantes $prestamo)
     {
+<<<<<<< HEAD
         $estante->delete();
+=======
+        $prestamo->delete();
+>>>>>>> fa516f1663f33ca6ef562fda0de7a5731735fda4
         return redirect()->route("prestamos.index");
     }
 }
