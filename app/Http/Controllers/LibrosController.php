@@ -64,16 +64,24 @@ class LibrosController extends Controller
             "file"=>"required|image|max:2048",
             ],[],["name"=>"nombre","content"=>"contenido"]);
 
-        $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
+        /* $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
                         'anio'=>$request->anio,
                         'descripcion'=>$request->descripcion,
-                        'editoriales_id'=>$request->editoriales_id,]);
+                        'editoriales_id'=>$request->editoriales_id,]); */
 
-        $libro1=Libros::Create($request->all());
+    /*  Para mejorar el rendimiento de la pagina se cambio la asignación 
+        de firstOrCreate a Create ya que al tener validado antes lo que se solicita 
+        el formulario genera redundacia en la LaravelCache y en ocasiones cuando el cliente 
+        pierde la conexion a internet o reenvia los datos del formulario algunos 
+        de los mismos se pierden asignandolos como nulos, este cambio no afecta la asignacion 
+        intermedia que se tiene entre tablas muchos a muchos. 
+        Besos Zeta*/
+
+        $libro=Libros::Create($request->all());
 
         if ($request->file('file')) {
             $url=Storage::put('public/libros',$request->file('file'));
-            $libro1->image()->create([
+            $libro->image()->create([
                 'url'=>$url
             ]);
         }
@@ -81,16 +89,16 @@ class LibrosController extends Controller
 
         foreach ($request->id_autor as $autor) {
             //dd($autor);
-            $asigna_autor=autores_libros::firstOrCreate(['libros_id'=>$newLibro->id,
+            $asigna_autor=autores_libros::firstOrCreate(['libros_id'=>$libro->id,
                         'autores_id'=>$autor]);
         }
 
         foreach ($request->id_categoria as $categoria) {
-            $categorias=categorias_libros::firstOrCreate(['libros_id'=>$newLibro->id,
+            $categorias=categorias_libros::firstOrCreate(['libros_id'=>$libro->id,
                         'categorias_id'=>$categoria,]);
         }
         for($i=1;$i<=$request->num_copia;$i++){
-            ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$i,]);
+            ejemplares::Create(['libros_id'=>$libro->id,'num_copia'=>$i,]);
         }
 
       // $ejemplar=ejemplares::Create(['libros_id'=>$newLibro->id,'num_copia'=>$request->num_copia,]);
