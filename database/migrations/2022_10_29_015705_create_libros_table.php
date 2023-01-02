@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('titulo',100)->nullable();
             $table->integer('anio')->nullable();
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('editoriales_id');
+            $table->unsignedBigInteger('editoriales_id')->nullable();
             $table->foreign('editoriales_id')->references('id')->on('editoriales')->onDelete('cascade')->onUpdate('cascade');
             //existancias->10
             $table->timestamps();

@@ -7,6 +7,8 @@ namespace Database\Seeders;
 use App\Models\autores;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(AutoresTableSeeder::class);
+        //$this->call(AutoresTableSeeder::class);
+        Storage::makeDirectory('public/libros');
     }
 }

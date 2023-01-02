@@ -12,6 +12,7 @@ use App\Models\categorias_libros;
 use App\Models\autores_libros;
 use App\Models\ejemplares;
 use App\Models\user;
+use Illuminate\Support\Facades\Storage;
 
 class LibrosController extends Controller
 {
@@ -52,21 +53,30 @@ class LibrosController extends Controller
      */
     public function store(Request $request)
     {
-
+        //return Storage::put('public/libros', $request->file('file'));
         //dd($request->all());
         //dd($request->numero);
-        /*$request->validate([
+        /* dd($request->editoriales_id); */
+        $request->validate([
             "titulo"=>"required",
             "anio"=>"required",
-
             "descripcion"=>"required",
-            "id_editoriales"=>"required", //buscar la validacion correcta
-            ],[],["name"=>"nombre","content"=>"contenido"]);*/
+            "file"=>"required|image|max:2048",
+            ],[],["name"=>"nombre","content"=>"contenido"]);
 
         $newLibro=Libros::firstOrCreate(['titulo'=>$request->titulo,
                         'anio'=>$request->anio,
                         'descripcion'=>$request->descripcion,
-                        'editoriales_id'=>$request->id_editoriales,]);
+                        'editoriales_id'=>$request->editoriales_id,]);
+
+        $libro1=Libros::Create($request->all());
+
+        if ($request->file('file')) {
+            $url=Storage::put('public/libros',$request->file('file'));
+            $libro1->image()->create([
+                'url'=>$url
+            ]);
+        }
 
 
         foreach ($request->id_autor as $autor) {
@@ -131,12 +141,7 @@ class LibrosController extends Controller
      */
     public function update(Request $request, libros $libro)
     {
-        $request->validate([
-            "descripcion"=>"required",
-            "anio"=>"required",
-            "id_editoriales"=>"required", //buscar laa validacion correcta
-            "id_categorias"=>"required", //buscar laa validacion correcta
-            ],[],["name"=>"nombre","content"=>"contenido"]);
+        
         
         $libro->update(['descripcion'=>$request->descripcion,
                         'anio'=>$request->anio,
