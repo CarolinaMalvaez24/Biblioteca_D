@@ -55,7 +55,12 @@ class TablaPermisos extends Seeder
             'ver-prestamo',
             'crear-prestamo',
             'editar-prestamo',
-            'borrar-prestamo'
+            'borrar-prestamo',
+
+            'ver-devolucion',
+            'crear-devolucion',
+            'editar-devolucion',
+            'borrar-devolucion'
         ];
 
         foreach($permisos as $permiso){

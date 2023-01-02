@@ -104,11 +104,11 @@
                                 Registros
                             </a>
                             <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('libros')}}">
-                                    Libro
-                                </a>
                                 <a class="dropdown-item" href="{{url('prestamos')}}">
-                                    Prestamo
+                                    Prestamos
+                                </a>
+                                <a class="dropdown-item" href="{{url('devoluciones')}}">
+                                    Devoluciones
                                 </a>
                             </div>
                         </li>

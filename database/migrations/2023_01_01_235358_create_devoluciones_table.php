@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prestamos', function (Blueprint $table) {
+        Schema::create('devoluciones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('prestamos_id');
-             $table->foreign('prestamos_id')->references('id')->on('prestamos')->onDelete('cascade')->onUpdate('cascade');
+            //id del prestamo
+            $table->unsignedBigInteger('estantes_id');
+            $table->foreign('estantes_id')->references('id')->on('estantes')->onDelete('cascade')->onUpdate('cascade');
+            //comentarios
+            $table->string('observaciones',100);
+            //fecha de devoucion
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestamos');
+        Schema::dropIfExists('devoluciones');
     }
 };

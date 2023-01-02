@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\estantes;
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\ejemplares;
 use App\Models\libros;
 class EstantesController extends Controller
 {
@@ -17,17 +17,20 @@ class EstantesController extends Controller
     {
         /*
             SELECT 
-            estantes.id,
-            usuarios.nombreUsuario,
-            libros.descripcion 
+                estantes.id,
+                users.name,
+                libros.titulo,
+                ejemplares.num_copia
             from estantes
-            INNER JOIN usuarios on usuarios.id=estantes.id_usuarios
-            INNER JOIN libros on libros.id=estantes.id_libros;
+                INNER JOIN users on users.id=estantes.users_id
+                INNER JOIN ejemplares on ejemplares.id=estantes.ejemplares_id
+                INNER JOIN libros on libros.id=ejemplares.libros_id;
         */
         
         $estante=estantes::join("users","users.id","=","estantes.users_id")
-            ->join("libros","libros.id","=","estantes.libros_id")
-            ->select("estantes.id","users.name","libros.titulo")
+            ->join("ejemplares","ejemplares.id","=","estantes.ejemplares_id")
+            ->join("libros","libros.id","=","ejemplares.libros_id")
+            ->select("estantes.id","users.name","libros.titulo","ejemplares.num_copia")
             ->orderby("estantes.id")
             ->get();
         return view("estantes.TableEstantes",compact("estante"));
@@ -40,9 +43,9 @@ class EstantesController extends Controller
      */
     public function create()
     {
-        $usuarios=user::all();
         $libros=libros::all();
-        return view("estantes.FormEstantes",compact("usuarios","libros"));
+        $copias=ejemplares::all();
+        return view("estantes.FormEstantes",compact("copias","libros"));
     }
 
     /**
@@ -53,14 +56,14 @@ class EstantesController extends Controller
      */
     public function store(Request $request)
     {
-       
+        //dd($request->all());
         $request->validate([
-            "libros_id"=>"required", //buscar su validacion
+            "ejemplares_id"=>"required", //buscar su validacion
             "users_id"=>"required",   //buscar su validacion
             ],[],["name"=>"nombre","content"=>"contenido"]);
           //  dd($request->all());
-        Estantes::firstOrCreate(['libros_id'=>$request->libros_id,
-                          'users_id'=>$request->users_id, ]);
+        Estantes::firstOrCreate(['users_id'=>$request->users_id,
+                          'ejemplares_id'=>$request->ejemplares_id, ]);
         return redirect()->route('prestamos.index');
     }
 

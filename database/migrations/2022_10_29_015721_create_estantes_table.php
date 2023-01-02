@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('estantes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('libros_id');
+            $table->unsignedBigInteger('ejemplares_id');
             $table->unsignedBigInteger('users_id');
 
-            $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ejemplares_id')->references('id')->on('ejemplares')->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
 
             $table->timestamps();
         });

@@ -9,16 +9,17 @@
             <div class="d-flex justify-content-center card">
                 <div class="card-body">
                     <div class="col-md-12">
-                        <h1 class="text-center">Tabla Prestamos<br></h1>
+                        <h1 class="text-center">Tabla Devoluciones<br></h1>
                     </div>
                 </div>
                 <div class="col-md-12 text-center my-1">
-                    @can('crear-prestamo')
+                    @can('crear-devolucion')
                         <a class="btn btn-dark text-capitalize border border-left border-right
                         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
                            href="prestamos/create">
                             <i class="bi-file-earmark-plus"></i>
-                        </a>@endcan
+                        </a>
+                    @endcan
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -30,11 +31,13 @@
                                     <th>Nombre de usuario</th>
                                     <th>Titulo del libro<br></th>
                                     <th>Numero de copia<br></th>
+                                    <th>Fecha de devolucion<br></th>
+                                    <th>Observaciones<br></th>
                                     <th>Opciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($estante as $datos)
+                                @foreach($devoluciones as $datos)
                                     <tr>
                                         <th>{{$loop->index+1}}</th>
                                         <td>{{$datos->name}}</td>

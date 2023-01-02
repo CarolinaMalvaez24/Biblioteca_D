@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('libros_id');
             $table->foreign('libros_id')->references('id')->on('libros')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('num_copia');
+           // $table->boolean('estado');
             $table->timestamps();
         });
     }

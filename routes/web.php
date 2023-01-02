@@ -14,6 +14,7 @@ use App\Http\Controllers\registrocategoriaLcontroller;
 use App\Http\Controllers\reglibeditorialcontroller;
 use App\Http\Controllers\registroautorcontroller;
 use App\Http\Controllers\EstantesController;
+use App\Http\Controllers\DevolucionesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,15 +45,9 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('aggcategoria',registrocategoriaLcontroller::class);
     Route::resource("autorRegistro",registroautorcontroller::class);
     Route::resource("prestamos",EstantesController::class);
+    Route::resource("devoluciones",DevolucionesController::class);
 });
 
 Route::get('categorias/{categoria}',[LibrosController::class,'asigna_categoria']);
 
-/*Route::resource("autores",\App\Http\Controllers\AutoresController::class);
-Route::resource("categorias",\App\Http\Controllers\CategoriasController::class);
-Route::resource("consultas" ,\App\Http\Controllers\ConsultasController::class);
-Route::resource("editoriales", \App\Http\Controllers\EditorialesController::class);
-Route::resource("estantes",\App\Http\Controllers\EstantesController::class);
-Route::resource("libros", \App\Http\Controllers\LibrosController::class);
-Route::resource("tipos", \App\Http\Controllers\TiposController::class);
-Route::resource("usuarios", \App\Http\Controllers\UsuariosController::class);*/
+
