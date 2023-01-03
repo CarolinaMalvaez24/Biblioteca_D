@@ -16,7 +16,7 @@
                     @can('crear-devolucion')
                         <a class="btn btn-dark text-capitalize border border-left border-right
                         border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
-                           href="prestamos/create">
+                           href="devoluciones/create">
                             <i class="bi-file-earmark-plus"></i>
                         </a>
                     @endcan
@@ -48,11 +48,11 @@
                                             @can('editar-prestamo')
                                                 <a class="btn btn-dark text-capitalize border border-left border-right
                                                 border-top border-bottom border-light rounded-lg active text-decoration-none py-1"
-                                                   href="{{route('prestamos.edit',$datos->id)}}">
+                                                   href="{{route('devoluciones.edit',$datos->id)}}">
                                                    <i class="bi bi-pencil"></i>
                                                 </a>@endcan
                                             @can('borrar-prestamo')
-                                                <form action="{{route('prestamos.destroy',$datos->id)}}" method="post">
+                                                <form action="{{route('devoluciones.destroy',$datos->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-dark text-capitalize border border-left border-right

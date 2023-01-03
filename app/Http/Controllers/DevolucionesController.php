@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Devoluciones;
 use Illuminate\Http\Request;
-
+use App\Models\estantes;
 class DevolucionesController extends Controller
 {
     /**
@@ -29,13 +29,15 @@ class DevolucionesController extends Controller
                 WHERE  devoluciones.estantes_id=estantes.id;
         
         */
-        $devoluciones=devoluciones::join("users","users.id","=","estantes.users_id")
+        /*$devoluciones=devoluciones::join("users","users.id","=","estantes.users_id")
             ->join("ejemplares","ejemplares.id","=","estantes.ejemplares_id")
             ->join("libros","libros.id","=","ejemplares.libros_id")
             ->select( "devoluciones.id","users.name","libros.titulo","ejemplares.num_copia","devoluciones.created_at",
                 "devoluciones.observaciones")
             ->where("devoluciones.estantes_id","estantes.id")
-            ->get();
+            ->get();*/
+
+        $devoluciones=devoluciones::all();
         return view('devoluciones.index',compact("devoluciones"));
     }
 
@@ -46,7 +48,8 @@ class DevolucionesController extends Controller
      */
     public function create()
     {
-        //
+        $prestamos=estantes::all();
+        return view('devoluciones.create',compact('prestamos'));
     }
 
     /**
