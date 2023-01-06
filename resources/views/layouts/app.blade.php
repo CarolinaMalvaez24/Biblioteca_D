@@ -136,12 +136,15 @@
     <main class="py-4">
         @yield('content')
     </main>
-</div>
-</body>
-</html>
 <script>
     import Scripts from "../../../vendor/twbs/bootstrap-icons/docs/layouts/partials/scripts.html";
     export default {
         components: {Scripts}
     }
 </script>
+<script src="https://unpkg.com/alpinejs@3.1.x/dist/cdn.min.js" defer></script>
+    @stack("scripts")
+</div>
+</body>
+</html>
+

@@ -48,4 +48,7 @@ class libros extends Model
     public function ejemplares(){
         return $this->belongsTo(ejemplares::class);
     }
+    public function estantes(){
+        return $this->belongsTo(libros::class);
+    }
 }

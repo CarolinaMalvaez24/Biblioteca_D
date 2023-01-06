@@ -6,6 +6,7 @@ use App\Models\estantes;
 use Illuminate\Http\Request;
 use App\Models\ejemplares;
 use App\Models\libros;
+use App\Http\Controllers\user;
 class EstantesController extends Controller
 {
     /**
@@ -43,8 +44,14 @@ class EstantesController extends Controller
      */
     public function create()
     {
-        $libros=libros::all();
-        $copias=ejemplares::all();
+        
+        $libros = libros::all()->toJson(JSON_PRETTY_PRINT);
+        
+        /* $copias=ejemplares::where('libros_id', )->get(); */
+        $copias = ejemplares::all()->toJson(JSON_PRETTY_PRINT);
+
+       
+
         return view("estantes.FormEstantes",compact("copias","libros"));
     }
 
@@ -56,7 +63,7 @@ class EstantesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        //dd($request->titulo);
         $request->validate([
             "ejemplares_id"=>"required", //buscar su validacion
             "users_id"=>"required",   //buscar su validacion
@@ -73,9 +80,11 @@ class EstantesController extends Controller
      * @param  \App\Models\estantes  $estantes
      * @return \Illuminate\Http\Response
      */
-    public function show(estantes $estantes)
+    public function show(libros $libro)
     {
-        //
+        $libros = libros::all();
+        /* $copia = ejemplares::where('libros_id', $libro->id)->get(); */
+        return view('estantes.FormEstantes', compact('libros')); 
     }
 
     /**
@@ -87,7 +96,8 @@ class EstantesController extends Controller
     public function edit(estantes $prestamo)
     {
         $usuarios=user::all();
-        $libros=libros::all();
+        $libros = libros::all();
+        $copias = ejemplares::all();
         return view("estantes.updateEstantes",compact("prestamo","usuarios","libros"));
     }
 
