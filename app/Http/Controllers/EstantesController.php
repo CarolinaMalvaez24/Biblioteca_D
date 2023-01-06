@@ -63,13 +63,9 @@ class EstantesController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->titulo);
-        $request->validate([
-            "ejemplares_id"=>"required", //buscar su validacion
-            "users_id"=>"required",   //buscar su validacion
-            ],[],["name"=>"nombre","content"=>"contenido"]);
-          //  dd($request->all());
-        Estantes::firstOrCreate(['users_id'=>$request->users_id,
+        //dd($request->all());
+        
+        Estantes::Create(['users_id'=>$request->users_id,
                           'ejemplares_id'=>$request->ejemplares_id, ]);
         return redirect()->route('prestamos.index');
     }
