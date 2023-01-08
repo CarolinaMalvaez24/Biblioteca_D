@@ -13,7 +13,14 @@
                 @foreach ($carrousel as $carrou)
                     <div class="carousel-item">
                         <article class="">
-                                <img src="{{Storage::url($carrou->image->url)}}" class="card-img" width="350" height="350" style="">
+                          <div class="container">
+                            <div class="row justify-content-center">
+                              <div class="col-lg-4 col-md-6 text-center">
+                                <img src="{{Storage::url($carrou->image->url)}}" class="card-img" width="120" height="400" style="">
+                                {{$carrou->titulo}}
+                              </div> 
+                            </div>
+                          </div>
                         </article>  
                     </div>     
                 @endforeach
