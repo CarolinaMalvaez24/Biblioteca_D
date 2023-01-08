@@ -4,7 +4,6 @@
 <div class="container">
         <div class="row justify-content-center mb-4">
         <div id="carouselExampleAutoplaying" class="carousel slide mb-4" data-bs-ride="carousel">
-
             <div class="carousel-item active">
                 <div>
                     <img src="img/Bienvenido.gif" class="card-img" width="350" height="350" style="">
@@ -13,23 +12,13 @@
             <div class="carousel-inner">
                 @foreach ($carrousel as $carrou)
                     <div class="carousel-item">
-                        <article 
-                            class=""
-                            {{-- style="background-image: url({{Storage::($carrou->image->url)}})" --}}>
-                            <div>
+                        <article class="">
                                 <img src="{{Storage::url($carrou->image->url)}}" class="card-img" width="350" height="350" style="">
-                            </div>
-                            
-
-                        </article>
-                    {{--                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg> --}}
-                                  
-                    </div>
+                        </article>  
+                    </div>     
                 @endforeach
-              
-              
-              
             </div>
+        
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
               <span class="carousel-control-prev-icon bg-dark rounded-3" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -38,8 +27,8 @@
               <span class="carousel-control-next-icon bg-dark rounded-3" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
-
+        </div>
+        </div>
         <div class="col-md-12">
             <div class="card border border-dark">
                 <div class="card-header text-center text-white bg-dark">{{ __('Bienvenido') }}</div>
@@ -54,60 +43,52 @@
                         <div class="row row-cols-4">
                             @foreach ($libros as $libro)
                                 <div class="col mb-4">
-                                    <div class="card text-bg-dark">
+                                    <a class="" href="{{route('libros.show',$libro->id)}}">
+                                        <div class="card text-bg-dark">
                                         <img src="{{Storage::url($libro->image->url)}}" class="card-img" width="100" height="350" style="">
                                         <div class="card-img-overlay">
-                                          <h5 class="card-title ">
-                                            <a class="btn btn-dark text-capitalize border border-light rounded-lg active text-decoration-none py-1" href="{{route('libros.show',$libro->id)}}"
-                                                                     data-toggle="tooltip" rel="tooltip" data-placement="top" title="{{$libro->titulo}}">
-                                                                      <i class="bi bi-book">
-                                                                        {{$libro->titulo}}
-                                                                      </i>
-
-                                                                  </a>
-                                            {{-- {{$libro->titulo}} --}}</h5>
-                                          <p class="card-text text-dark bg-secondary rounded-lg">{{$libro->descripcion}}</p>
+                                            <h5 class="card-title ">
+                                            {{$libro->titulo}}
+                                            </h5>
                                         </div>
                                       </div>
-                                    {{-- <div class="card text-bg-dark">
-                                        <div class="card-body">
-                                            <h1>{{$libro->titulo}}</h1>
-                                        </div>
-                                    </div> --}}
+                                    </a>
+                                    <div>
+                                        <p class="card-text text-dark bg-secondary rounded-lg">{{$libro->descripcion}}</p>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
-                      </div>
-                        {{-- <img src="{{url("img/logo_transparent.png")}}" height="300" width="400"> --}}
-                        {{-- <div id="carouselExample" class="carousel slide">
-                            <div class="carousel-inner">
-                              <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100"  width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
-                              </div>
-                              <div class="carousel-item">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
-                              </div>
-                              <div class="carousel-item active">
-                                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-                              </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div> --}}
-
-
-                          {{-- INICIO DE HOME --}}
-                          
-                          
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="bg-secondary p-4" >
+    <div class="container">
+      <div class="row">
+        <div class="p-0 col-lg-4 col-md-6">
+            <div class="col-12 col-md"> <i class="fa fa-lg fa-bullseye d-block mb-2"></i> <small class="d-block mb-3 text-dark">© 2022-2023</small> </div>
+          <img class="img-fluid" src=""> </div>
+        <div class="col-md-5 align-self-center p-4 offset-md-1">
+          <h4>Equipo <br>Las chicas superpoderosas </h4>
+          <div class="py-2">
+            <div class="container">
+              <div class="row" >
+                <div class="py-2 col-md-6"><abbr title="">José Manuel Mercado Menchaca</abbr></div>
+                <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/manu.uel9439/" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/manu_uel09/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+                <div class="py-2 col-md-6"><abbr title="">Efrén Bárcenas García</abbr></div>
+                <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/efren.barcenas.12" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/efren._.barcenas/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+                <div class="py-2 col-md-6"><abbr title="">Julio Alejandro López Espinoza</abbr></div>
+                <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/profile.php?id=100039165930641" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/julio___________67/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+                <div class="py-2 col-md-6"><abbr title="">Carolina Malvaes Hernandez</abbr></div>
+                <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/carol.malvaez.9" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/caro_malvaez24/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </div>
 @endsection

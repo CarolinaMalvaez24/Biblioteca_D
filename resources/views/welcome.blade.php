@@ -80,7 +80,7 @@
         </div>
 
         <div class="py-1">
-            <img src="{{url("img/biblio.jpg")}}" height="500" width="700">
+            <img src="img/Welcome.gif" class="card-img" width="auto" height="auto" style="">
         </div>
     </div>
 </div>

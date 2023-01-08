@@ -26,7 +26,6 @@
                 <div class="row">
                     <div class="d-flex justify-content-center card">
                         <div class="card-body">
-                            <h1>Espero que nos pase XD</h1>
                         </div>
                     </div>
                 </div>
@@ -131,9 +130,17 @@
                 </div>
             </div>
             <div class="footer">
-            
             </div>
         </form>
+    </div>
+    <div class="col-md-3 px-5 mx-3" >
+        <div class="row">
+            <div class="d-flex justify-content-center card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('scripts')
