@@ -31,6 +31,7 @@ class LibrosController extends Controller
         return view("libros.TableLibros",compact("libro"));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -44,6 +45,8 @@ class LibrosController extends Controller
         $autores=autores::all();
         return view("libros.FormLibros",compact('editorial','categoria','autores'));
     }
+
+    
 
     /**
      * Store a newly created resource in storage.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\libros;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $libros = libros::all();
+        $carrousel = libros::all();
+        return view("home",compact("libros", 'carrousel'));
+
     }
+
 }
