@@ -16,7 +16,9 @@
                           <div class="container">
                             <div class="row justify-content-center">
                               <div class="col-lg-4 col-md-6 text-center">
+                                <a class="" href="{{route('libros.show',$carrou->id)}}">
                                 <img src="{{Storage::url($carrou->image->url)}}" class="card-img" width="120" height="400" style="">
+                                </a>
                                 {{$carrou->titulo}}
                               </div> 
                             </div>
