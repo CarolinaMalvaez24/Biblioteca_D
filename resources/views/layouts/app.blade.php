@@ -66,7 +66,7 @@
                             </li>
                         @endif
                     @else
-                    @can('ver-usuarios')
+                    @can('ver-usuario')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Permisos
@@ -81,7 +81,7 @@
                             </div>
                         </li>
                     @endcan
-                    @can('ver-libros')
+                    @can('crear-libro')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Bases de datos
@@ -102,7 +102,7 @@
                             </div>
                         </li>
                     @endcan
-                    @can('ver-prestamos')
+                    @can('ver-prestamo')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Registros

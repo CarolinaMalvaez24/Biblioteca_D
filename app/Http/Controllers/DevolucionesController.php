@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Devoluciones;
 use Illuminate\Http\Request;
 use App\Models\estantes;
+use Illuminate\Support\Facades\DB;
 class DevolucionesController extends Controller
 {
     /**
@@ -14,28 +15,7 @@ class DevolucionesController extends Controller
      */
     public function index()
     {
-        /*
-        SELECT 
-                devoluciones.id,
-                users.name,
-                libros.titulo,
-                ejemplares.num_copia,
-                devoluciones.created_at,
-                devoluciones.observaciones
-            from devoluciones,estantes
-                INNER JOIN users on users.id=estantes.users_id
-                INNER JOIN ejemplares on ejemplares.id=estantes.ejemplares_id
-                INNER JOIN libros on libros.id=ejemplares.libros_id
-                WHERE  devoluciones.estantes_id=estantes.id;
-        
-        */
-        /* $devoluciones=devoluciones::join("users","users.id","=","estantes.users_id")
-            ->join("ejemplares","ejemplares.id","=","estantes.ejemplares_id")
-            ->join("libros","libros.id","=","ejemplares.libros_id")
-            ->select( "devoluciones.id","users.name","libros.titulo","ejemplares.num_copia","devoluciones.created_at",
-                "devoluciones.observaciones")
-            ->where("devoluciones.estantes_id","estantes.id")
-            ->get(); */
+
         $devoluciones=devoluciones::all();
         return view('devoluciones.index',compact("devoluciones"));
     }
@@ -47,7 +27,8 @@ class DevolucionesController extends Controller
      */
     public function create()
     {
-        $prestamos=estantes::all();
+        $prestamos=estantes::where('users_id',auth()->user()->id)->get();
+        
         return view('devoluciones.create',compact('prestamos'));
     }
 
@@ -59,7 +40,9 @@ class DevolucionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $devolucion=Devoluciones::Create($request->all());
+        return redirect()->route('devoluciones.index');
     }
 
     /**

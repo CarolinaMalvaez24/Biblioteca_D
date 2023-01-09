@@ -20,12 +20,20 @@
                   <form id="c_form-h" method="POST" action="{{url('devoluciones')}}">
                     @csrf
                       <div class="my-2 form-group row"><label class="col-12 d-flex justify-content-center">Ingresar id del prestamo</label>
-                          <div class="col-12 d-flex justify-content-center"><select class="form-select @error('ejemplares_id')is-invalid @enderror" aria-label="Default select example" id="ejemplares_id" name="ejemplares_id">
+                          <div class="col-12 d-flex justify-content-center"><select class="form-select @error('estantes_id')is-invalid @enderror" aria-label="Default select example" id="estantes_id" name="estantes_id">
                                   <option selected="" value="Open this select menu">Selecciona prestamo</option>
                                   @foreach($prestamos as $prestamo)
                                       <option value="{{$prestamo->id}}">{{$prestamo->id}}</option>
                                   @endforeach
                               </select>
+                              @error('ejemplares_id')
+                              <div class="invalid-feedback">{{$message}}</div>
+                              @enderror
+                          </div>
+                      </div>
+                      <div class="my-2 form-group row"><label class="col-12 d-flex justify-content-center">Comentarios</label>
+                          <div class="col-12 d-flex justify-content-center">
+                            <input type="" name="observaciones">
                               @error('ejemplares.id')
                               <div class="invalid-feedback">{{$message}}</div>
                               @enderror

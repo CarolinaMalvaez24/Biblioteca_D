@@ -52,7 +52,7 @@ class EstantesController extends Controller
         /* $copias=ejemplares::where('libros_id', )->get(); */
         $copias = ejemplares::all()->toJson(JSON_PRETTY_PRINT);
 
-       
+        dd($copias);
 
         return view("estantes.FormEstantes",compact("copias","libros"));
     }

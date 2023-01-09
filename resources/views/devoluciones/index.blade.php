@@ -29,8 +29,6 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nombre de usuario</th>
-                                    <th>Titulo del libro<br></th>
-                                    <th>Numero de copia<br></th>
                                     <th>Fecha de devolucion<br></th>
                                     <th>Observaciones<br></th>
                                     <th>Opciones</th>
@@ -40,9 +38,9 @@
                                 @foreach($devoluciones as $datos)
                                     <tr>
                                         <th>{{$loop->index+1}}</th>
-                                        <td>{{$datos->name}}</td>
-                                        <td>{{$datos->titulo}}</td>
-                                        <td>{{$datos->num_copia}}</td>
+                                        <td>{{auth()->user()->name}}</td>
+                                        <td>{{$datos->created_at}}</td>
+                                        <td>{{$datos->observaciones}}</td>
                                         <td>
                                             <div class="d-flex">
                                             @can('editar-prestamo')
