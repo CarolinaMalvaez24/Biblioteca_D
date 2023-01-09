@@ -86,7 +86,7 @@
                 <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/efren.barcenas.12" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/efren._.barcenas/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
                 <div class="py-2 col-md-6"><abbr title="">Julio Alejandro López Espinoza</abbr></div>
                 <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/profile.php?id=100039165930641" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/julio___________67/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
-                <div class="py-2 col-md-6"><abbr title="">Carolina Malvaes Hernandez</abbr></div>
+                <div class="py-2 col-md-6"><abbr title="">Carolina Malvaez Hernández</abbr></div>
                 <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/carol.malvaez.9" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/caro_malvaez24/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
               </div>
               <div class="row">

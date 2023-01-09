@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        @can('crear-prestamo')
+        {{--  @can('crear-prestamo')
         <div class="row d-flex justify-content-center">
             <div class="col-5 d-flex justify-content-center">
                 <form id="c_form-h" method="POST" action="{{url('prestamos')}}">
@@ -71,6 +71,6 @@
                   </form>
             </div>
         </div>
-        @endcan
+        @endcan  --}}
     </div>
 @endsection
