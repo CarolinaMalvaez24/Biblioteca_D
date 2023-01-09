@@ -25,7 +25,8 @@ class EstantesController extends Controller
             from estantes
                 INNER JOIN users on users.id=estantes.users_id
                 INNER JOIN ejemplares on ejemplares.id=estantes.ejemplares_id
-                INNER JOIN libros on libros.id=ejemplares.libros_id;
+                INNER JOIN libros on libros.id=ejemplares.libros_id
+                where estantes.users_id=1;
         */
         
         $estante=estantes::join("users","users.id","=","estantes.users_id")
@@ -33,6 +34,7 @@ class EstantesController extends Controller
             ->join("libros","libros.id","=","ejemplares.libros_id")
             ->select("estantes.id","users.name","libros.titulo","ejemplares.num_copia")
             ->orderby("estantes.id")
+            ->where("estantes.users_id",auth()->user()->id)
             ->get();
         return view("estantes.TableEstantes",compact("estante"));
     }
