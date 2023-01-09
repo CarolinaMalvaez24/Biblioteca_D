@@ -94,6 +94,11 @@
                 <div class="py-2 col-md-6"><abbr title="">Carolina Malvaes Hernandez</abbr></div>
                 <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/carol.malvaez.9" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/caro_malvaez24/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
               </div>
+              <div class="row">
+              <h4>Colaborador externo</h4>
+              <div class="py-2 col-md-6"><abbr title="">Víctor Alfredo Ruiz Torres</abbr></div>
+              <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/EpigaloTorres" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/capadelatormenta/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+            </div>
             </div>
           </div>
         </div>
