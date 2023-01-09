@@ -85,8 +85,9 @@ class DevolucionesController extends Controller
      * @param  \App\Models\Devoluciones  $devoluciones
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Devoluciones $devoluciones)
+    public function destroy(Devoluciones $devolucione)
     {
-        //
+        $devolucione->delete();
+        return redirect()->route('devoluciones.index');
     }
 }
