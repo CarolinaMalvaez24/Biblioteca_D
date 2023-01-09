@@ -55,15 +55,10 @@
                                     <a class="" href="{{route('libros.show',$libro->id)}}">
                                         <div class="card text-bg-dark">
                                         <img src="{{Storage::url($libro->image->url)}}" class="card-img" width="100" height="350" style="">
-                                        <div class="card-img-overlay">
-                                            <h5 class="card-title ">
-                                            {{$libro->titulo}}
-                                            </h5>
-                                        </div>
                                       </div>
                                     </a>
                                     <div>
-                                        <p class="card-text text-dark bg-secondary rounded-lg">{{$libro->descripcion}}</p>
+                                        <p class="card-text text-dark bg-secondary rounded-lg">{{$libro->titulo}}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -98,6 +93,10 @@
               <h4>Colaborador externo</h4>
               <div class="py-2 col-md-6"><abbr title="">Víctor Alfredo Ruiz Torres</abbr></div>
               <div class="col-md-6"><a class="ml-3 btn text-white" href="https://www.facebook.com/EpigaloTorres" style="background:#3b5998" target="" ><i class="bi-facebook ml-1"></i></a> <a class="ml-3 btn text-black" href="https://www.instagram.com/capadelatormenta/" style="background:#ffff" target="" ><i class="bi-instagram ml-1"></i></a></div>
+              <div class="py-2 col-md-6"><abbr title="">Cesar Primero Huerta</abbr></div>
+              <div class="col-md-6 text-muted"><p>Solo por que al crear un select y no pudo lo volvio personal</p></div>
+              <div class="col-md-6"><a class="ml-3 btn text-muted" href={{ asset('img/easter_egg.jpg') }}></div>
+              </div>
             </div>
             </div>
           </div>

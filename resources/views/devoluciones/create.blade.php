@@ -13,14 +13,14 @@
       </div>
     </div>
   </div>
-  <div class="container col-sm-4">
+  <div class="container col-sm-2">
       <div class="row">
           <div class="d-flex justify-content-center card">
               <div class="card-body">
                   <form id="c_form-h" method="POST" action="{{url('devoluciones')}}">
                     @csrf
-                      <div class="my-2 form-group row"><label class="col-8 d-flex justify-content-center">ingresar id del prestamo</label>
-                          <div class="col-10 d-flex justify-content-center"><select class="form-select @error('ejemplares_id')is-invalid @enderror" aria-label="Default select example" id="ejemplares_id" name="ejemplares_id">
+                      <div class="my-2 form-group row"><label class="col-12 d-flex justify-content-center">Ingresar id del prestamo</label>
+                          <div class="col-12 d-flex justify-content-center"><select class="form-select @error('ejemplares_id')is-invalid @enderror" aria-label="Default select example" id="ejemplares_id" name="ejemplares_id">
                                   <option selected="" value="Open this select menu">Selecciona prestamo</option>
                                   @foreach($prestamos as $prestamo)
                                       <option value="{{$prestamo->id}}">{{$prestamo->id}}</option>

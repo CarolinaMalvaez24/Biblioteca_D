@@ -66,6 +66,7 @@
                             </li>
                         @endif
                     @else
+                    @can('ver-usuarios')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Permisos
@@ -79,6 +80,8 @@
                                 </a>
                             </div>
                         </li>
+                    @endcan
+                    @can('ver-libros')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Bases de datos
@@ -96,9 +99,10 @@
                                 <a class="dropdown-item" href="{{url('editoriales')}}">
                                     Editoriales
                                 </a>
-
                             </div>
                         </li>
+                    @endcan
+                    @can('ver-prestamos')
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Registros
@@ -112,6 +116,7 @@
                                 </a>
                             </div>
                         </li>
+                    @endcan
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
